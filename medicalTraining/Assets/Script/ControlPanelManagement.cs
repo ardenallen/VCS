@@ -54,12 +54,4 @@ public class ControlPanelManagement : MonoBehaviour
         turnOffLightBtn.SetActive(true);
 
     }
-
-    //public void FindObject(string objname)
-    //{
-    //    for(int i = 0; i < vitals.Length; i++)
-    //    {
-
-    //    }
-    //}
 }

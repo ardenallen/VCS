@@ -107,16 +107,18 @@ public class ControlPanelManagement : MonoBehaviour
         GameObject obj = EventSystem.current.currentSelectedGameObject;
 
         category.text = "Change" + obj.name;
+        vitalName = obj.name;
 
         oldFigure.text = obj.transform.Find("Number").GetComponent<Text>().text;
 
         confirmChange.onClick.AddListener(
             delegate ()
            {
-               obj.transform.Find("Number").GetComponent<Text>().text = newFigure.text;
-
-               vitalName = obj.name;
-               vitalNumber = newFigure.text;
+               if (obj.name == vitalName)
+               {
+                   obj.transform.Find("Number").GetComponent<Text>().text = newFigure.text;
+                   vitalNumber = newFigure.text;
+               }
 
                changePopup.SetActive(false);
             }

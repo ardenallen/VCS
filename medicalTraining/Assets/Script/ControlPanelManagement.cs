@@ -20,6 +20,8 @@ public class ControlPanelManagement : MonoBehaviour
     void Start()
     {
         videoPlayer.clip = hr76;
+        public GameObject StethoscopeTrigger;
+        public GameObject StethoscopeOnHand;
 
         if(!lights.activeInHierarchy)
         {
@@ -35,6 +37,11 @@ public class ControlPanelManagement : MonoBehaviour
     void Update()
     {
         //lights.SetActive(lightStates);
+        if (StethoscopeTrigger.GetComponent<OVRGrabbable>().isGrabbed == true)
+        {
+            StethoscopeOnHand.SetActive(true);
+            StethoscopeTrigger.SetActive(false);
+        }
     }
 
     public void TurnOffLight()

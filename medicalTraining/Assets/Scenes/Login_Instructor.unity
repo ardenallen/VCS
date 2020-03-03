@@ -774,15 +774,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171853195}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f82483f46ab8cc48ba4bbb330b37b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameUI: {fileID: 1293558810}
-  roomUI: {fileID: 220063475}
+  welcomeScreen: {fileID: 0}
+  usernameScreen: {fileID: 0}
+  passcodeScreen: {fileID: 0}
+  roleScreen: {fileID: 0}
+  loadingScreen: {fileID: 0}
   playerName: {fileID: 1054103892}
-  roomNumber: {fileID: 1495847433}
+  roomNumber:
+  - {fileID: 0}
+  charactor: 
+  progressBar: {fileID: 0}
+  progressPercentage: {fileID: 0}
 --- !u!4 &1171853197
 Transform:
   m_ObjectHideFlags: 0

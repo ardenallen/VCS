@@ -22,25 +22,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
 
         Vitalname = controlPanelManagement.vitalName;
         Vitalnumber = controlPanelManagement.vitalNumber;
-
-        //_lightState = controlPanelManagement.lightStates;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //for(int i = 0; i < controlPanelManagement.vitalMode.Length; i++)
-        //{
-        //    //GameObject obj = controlPanelManagement.vitalMode[i];
-        //    //Debug.Log(obj.name);
-        //    //if(vitals[i].text == controlPanelManagement.vitalMode[i].transform.Find("Number").GetComponent<Text>().text)
-        //    //if (vitals[i].text!= obj.transform.Find("Number").GetComponent<Text>().text)
-        //    {
-        //        //vitals[i].text = controlPanelManagement.vitalMode[i].transform.Find("Text").transform.GetComponent<Text>().text;
-        //        //pv.RPC("RPC_VitalChange", RpcTarget.Others, controlPanelManagement.vitalMode[i].name, vitals[i].text);
-        //    }
-        //}
         if (_lightState != controlPanelManagement.lightStates)
         {
             pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
@@ -50,7 +36,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         {
             Vitalname = controlPanelManagement.vitalName;
             Vitalnumber = controlPanelManagement.vitalNumber;
-            pv.RPC("RPC_VitalChange", RpcTarget.All, Vitalname, Vitalnumber);
+            pv.RPC("RPC_VitalChange", RpcTarget.Others, Vitalname, Vitalnumber);
         }
     }
 
@@ -60,12 +46,4 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         controlPanelManagement.lights.SetActive(lightStates);
         Debug.Log(lightStates);
     }
-    public void RPC_VitalChange(string obj, string numbers)
-    {
-        //GameObject go = GameObject.Find("Canvas");
-        GameObject.Find("Canvas").transform.Find("Panel/" + obj + "/Number").GetComponent<Text>().text = numbers;
-    }
-
-
-
 }

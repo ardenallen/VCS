@@ -1,10 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
-
 
 public class NetworkLauncher : MonoBehaviourPunCallbacks
 {
@@ -27,6 +26,7 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.AutomaticallySyncScene = true;
     }
+
     void Update()
     {
         if (welcomeScreen.activeInHierarchy == true)
@@ -38,10 +38,10 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
             }
         }
     }
+
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
-
         welcomeScreen.SetActive(true);
     }
 
@@ -138,4 +138,3 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
     //    base.OnJoinedRoom();
     //    PhotonNetwork.Instantiate("Player", new Vector3(-4, 1, 0), Quaternion.identity, 0);
     //}
-

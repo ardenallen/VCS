@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public class ControlPanelDataTransfer : MonoBehaviourPun
@@ -9,6 +10,8 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public ControlPanelManagement controlPanelManagement;
 
     private bool _lightState;
+    private string Vitalname;
+    private string Vitalnumber;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +33,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
             _lightState = controlPanelManagement.lightStates;
         }
-        
+
     }
 
     [PunRPC]
@@ -38,6 +41,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     {
         controlPanelManagement.lights.SetActive(lightStates);
         Debug.Log(lightStates);
+    }
+    [PunRPC]
+    public void RPC_VitalChange(string obj, string numbers)
+    {
+        GameObject.Find("Canvas/Panel/HR/Number").GetComponent<Text>().text = numbers;
     }
 
 

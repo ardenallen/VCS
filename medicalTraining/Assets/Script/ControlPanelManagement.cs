@@ -16,13 +16,12 @@ public class ControlPanelManagement : MonoBehaviour
 
     public GameObject[] vitals;
 
-    public GameObject StethoscopeTrigger;
-    public GameObject StethoscopeOnHand;
-
     // Start is called before the first frame update
     void Start()
     {
-        //videoPlayer.clip = hr76;
+        videoPlayer.clip = hr76;
+        public GameObject StethoscopeTrigger;
+        public GameObject StethoscopeOnHand;
 
         if(!lights.activeInHierarchy)
         {
@@ -62,12 +61,4 @@ public class ControlPanelManagement : MonoBehaviour
         turnOffLightBtn.SetActive(true);
 
     }
-
-    //public void FindObject(string objname)
-    //{
-    //    for(int i = 0; i < vitals.Length; i++)
-    //    {
-
-    //    }
-    //}
 }

@@ -13,6 +13,8 @@ public class ControlPanelManagement : MonoBehaviour
     public VideoPlayer videoPlayer;
     public VideoClip hr76;
     public VideoClip hr125;
+    public GameObject StethoscopeTrigger;
+    public GameObject StethoscopeOnHand;
 
     public GameObject[] vitals;
 
@@ -20,9 +22,7 @@ public class ControlPanelManagement : MonoBehaviour
     void Start()
     {
         videoPlayer.clip = hr76;
-        public GameObject StethoscopeTrigger;
-        public GameObject StethoscopeOnHand;
-
+        
         if(!lights.activeInHierarchy)
         {
             lightStates = false;

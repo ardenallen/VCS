@@ -2325,7 +2325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OS
+  m_Text: O2
 --- !u!222 &309859199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12300,7 +12300,7 @@ GameObject:
   - component: {fileID: 1767232009}
   - component: {fileID: 1767232008}
   m_Layer: 5
-  m_Name: OS
+  m_Name: O2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12567,7 +12567,7 @@ GameObject:
   - component: {fileID: 1788507478}
   - component: {fileID: 1788507477}
   m_Layer: 5
-  m_Name: OS
+  m_Name: O2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

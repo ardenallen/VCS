@@ -12,6 +12,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private bool _lightState;
     private string Vitalname;
     private string Vitalnumber;
+    private GameObject vitalmonitor;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
 
         _lightState = controlPanelManagement.lightStates;
+        vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
 
     }
 
@@ -45,9 +47,13 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     [PunRPC]
     public void RPC_VitalChange(string obj, string numbers)
     {
-        GameObject.Find("Canvas/Panel/HR/Number").GetComponent<Text>().text = numbers;
+        if (vitalmonitor)
+        {
+            vitalmonitor.transform.Find(obj + "/Number").GetComponent<Text>().text = numbers;
+        }
+        //GameObject.Find("VitalPanel/Panel/RawImage/HR/Number").GetComponent<Text>().text = numbers;
     }
 
 
-
+    
 }

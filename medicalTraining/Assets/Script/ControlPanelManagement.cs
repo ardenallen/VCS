@@ -17,19 +17,14 @@ public class ControlPanelManagement : MonoBehaviour
     public GameObject StethoscopeOnHand;
 
     public GameObject[] vitals;
+
+    public GameObject iv_fluid;
     
     // Start is called before the first frame update
     void Start()
     {
         videoPlayer.clip = hr76;
-        if(!lights.activeInHierarchy)
-        {
-            lightStates = false;
-        }
-        else
-        {
-            lightStates = true;
-        }
+        lightStates = lights.activeInHierarchy;
     }
 
     // Update is called once per frame

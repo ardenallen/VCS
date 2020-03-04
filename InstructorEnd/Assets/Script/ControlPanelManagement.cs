@@ -30,6 +30,9 @@ public class ControlPanelManagement : MonoBehaviour
     public string vitalName;
     public string vitalNumber;
 
+    public GameObject iv_fluid;
+    public bool iv_vis;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,23 +46,20 @@ public class ControlPanelManagement : MonoBehaviour
             AddTriggersListener(vitalMode[i], EventTriggerType.PointerDown, OnPointerDown);
         }
 
-        if(!lights.activeInHierarchy)
-        {
-            lightStates = false;
-        }
-        else
-        {
-            lightStates = true;
-        }
+        lightStates = lights.activeInHierarchy;
+        iv_vis = iv_fluid.activeInHierarchy;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //lights.SetActive(lightStates);
 
     }
 
+    public void ToggleIVFluid()
+    {
+        iv_vis = !iv_vis;
+    }
 
     public void TurnOffLight()
     {

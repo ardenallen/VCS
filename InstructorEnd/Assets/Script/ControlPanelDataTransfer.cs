@@ -13,6 +13,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private string Vitalname;
     private string Vitalnumber;
     private GameObject vitalmonitor;
+    private bool _iv;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
             _lightState = controlPanelManagement.lightStates;
         }
+        if (_iv != controlPanelManagement.iv_vis)
+        {
+            pv.RPC("RPC_IVFluid", RpcTarget.AllBuffered, controlPanelManagement.iv_vis);
+            _iv = controlPanelManagement.iv_vis;
+        }
         if (Vitalname != controlPanelManagement.vitalName || Vitalnumber != controlPanelManagement.vitalNumber)
         {
             Vitalname = controlPanelManagement.vitalName;
@@ -53,5 +59,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public void RPC_VitalChange(string obj, string numbers)
     {
         vitalmonitor.transform.Find(obj +"/Number").GetComponent<Text>().text = numbers;
+    }
+
+    [PunRPC]
+    public void RPC_IVFluid(bool iv_vis)
+    {
+        controlPanelManagement.iv_fluid.SetActive(iv_vis);
     }
 }

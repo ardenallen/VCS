@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollisionDetection : MonoBehaviour
 {
     private AudioSource audioSource;
+    public bool isTriggered;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,19 @@ public class CollisionDetection : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.name == "Stethoscope")
+        {
             audioSource.Play();
+            isTriggered = true;
+        }
+            
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.name == "Stethoscope")
+        {
             audioSource.Stop();
+            isTriggered = false;
+        }
     }
 }

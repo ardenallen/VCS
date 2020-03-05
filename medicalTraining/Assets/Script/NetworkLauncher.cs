@@ -20,6 +20,8 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
     public Slider progressBar;
     public Text progressPercentage;
 
+    private string code;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,12 +64,8 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
         {
             strg[i] = roomNumber[i].text;            
         }
-        string a = string.Concat(strg);
+        code = string.Concat(strg);
 
-        passcodeScreen.SetActive(false);
-
-        RoomOptions options = new RoomOptions { MaxPlayers = 3 };
-        PhotonNetwork.JoinOrCreateRoom(a, options, default);
 
         passcodeScreen.SetActive(false);
         roleScreen.SetActive(true);
@@ -98,24 +96,13 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
         StartCoroutine(LoadLevelAsync());
     }
 
-    //public IEnumerator EnterRoom()
-    //{
-    //    PhotonNetwork.IsMessageQueueRunning = false;
-    //    AsyncOperation async = PhotonNetwork.LoadLevelAsync(1);
-
-    //    while (!async.isDone)
-    //    {
-    //        progressBar.value = async.progress;
-
-    //        progressPercentage.text = "Loading......" + async.progress * 100 + "%";
-
-    //        yield return new WaitForEndOfFrame();
-    //    }
-    //}
 
     IEnumerator LoadLevelAsync()
     {
         PhotonNetwork.LoadLevel(1);
+
+        RoomOptions options = new RoomOptions { MaxPlayers = 3 };
+        PhotonNetwork.JoinOrCreateRoom(code, options, default);
 
         while (PhotonNetwork.LevelLoadingProgress < 1)
         {

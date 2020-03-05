@@ -39,5 +39,6 @@ MonoBehaviour:
   - RPC_CameraControl
   - ChangeColour
   - RPC_VitalChange
+  - RPC_IVFluid
   DisableAutoOpenWizard: 1
   ShowSettings: 1

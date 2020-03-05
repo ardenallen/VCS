@@ -8981,6 +8981,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8087378241937e948aaaefb10f430158, type: 2}
+    - target: {fileID: 2848797578754285226, guid: 87fd8b7b96742e441991c7c683e47b7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3418582897548786797, guid: 87fd8b7b96742e441991c7c683e47b7b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8993,6 +8998,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 61a300857dcf8f843bef8a55759ba423, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87fd8b7b96742e441991c7c683e47b7b, type: 3}
+--- !u!1 &1136837435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2848797578754285226, guid: 87fd8b7b96742e441991c7c683e47b7b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1136837434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1145310917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ba3a3aa0455a4fc4b858c3fa93bc1b33,
@@ -13150,9 +13161,10 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   hr76: {fileID: 32900000, guid: c3c0a3e47fd07a847855a41a8f671415, type: 3}
   hr125: {fileID: 32900000, guid: c0517426aab3da04281f80dfa8c00016, type: 3}
-  vitals: []
   StethoscopeTrigger: {fileID: 2030900745}
   StethoscopeOnHand: {fileID: 1549879424}
+  vitals: []
+  iv_fluid: {fileID: 1136837435}
 --- !u!82 &1611044298
 AudioSource:
   m_ObjectHideFlags: 0

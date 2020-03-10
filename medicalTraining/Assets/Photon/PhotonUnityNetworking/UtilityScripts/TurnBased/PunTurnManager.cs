@@ -25,7 +25,7 @@ namespace Photon.Pun.UtilityScripts
     /// Provides an Interface (IPunTurnManagerCallbacks) for the typical turn flow and logic, between players
     /// Provides Extensions for Player, Room and RoomInfo to feature dedicated api for TurnBased Needs
     /// </summary>
-	public class PunTurnManager : MonoBehaviourPunCallbacks, IOnEventCallback
+	public class PunTurnManager : MonoBehaviourPunCallback, IOnEventCallback
     {
         /// <summary>
         /// Wraps accessing the "turn" custom properties of a room.

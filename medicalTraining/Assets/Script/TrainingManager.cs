@@ -30,7 +30,7 @@ public class TrainingManager : MonoBehaviourPun
         //    PhotonNetwork.Instantiate(Instructor.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
         //}
 
-        if (PhotonNetwork.NickName == "Student1")
+        if (PhotonNetwork.NickName == "stu1")
         {
             PhotonNetwork.Instantiate("NetworkPlayer", new Vector3(-4, 1, 0), Quaternion.identity, 0);
         }

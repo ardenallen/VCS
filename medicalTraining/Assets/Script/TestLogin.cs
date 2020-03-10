@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class TestLogin : MonoBehaviourPunCallbacks
+public class TestLogin : MonoBehaviourPunCallback
 {
     public GameObject nameScreen;
     public GameObject roomScreen;

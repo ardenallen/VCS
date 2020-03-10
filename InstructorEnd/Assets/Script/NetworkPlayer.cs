@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class NetworkPlayer : MonoBehaviourPun
+public class NetworkPlayer : MonoBehaviourPun,IPunObservable
 {
     public GameObject avatar;
     public Transform playerGlobal;
@@ -30,7 +30,7 @@ public class NetworkPlayer : MonoBehaviourPun
         
     }
 
-    void OnPhotonSerializeView(PhotonStream stream,PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream,PhotonMessageInfo info)
     {
         if(stream.IsWriting)
         {

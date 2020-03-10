@@ -16,7 +16,7 @@ namespace ExitGames.Demos.DemoPunVoice
     using UnityEngine;
     using Photon.Pun;
 
-    public class CharacterInstantiation : MonoBehaviourPunCallbacks, IOnEventCallback
+    public class CharacterInstantiation : MonoBehaviourPunCallback, IOnEventCallback
     {
         public Transform SpawnPosition;
         public float PositionOffset = 2.0f;

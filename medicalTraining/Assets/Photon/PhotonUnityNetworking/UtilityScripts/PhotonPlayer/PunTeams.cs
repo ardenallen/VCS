@@ -31,7 +31,7 @@ namespace Photon.Pun.UtilityScripts
     /// Teams are defined by enum Team. Change this to get more / different teams.
     /// There are no rules when / if you can join a team. You could add this in JoinTeam or something.
     /// </remarks>
-    public class PunTeams : MonoBehaviourPunCallbacks
+    public class PunTeams : MonoBehaviourPunCallback
     {
         /// <summary>Enum defining the teams available. First team should be neutral (it's the default value any field of this enum gets).</summary>
         public enum Team : byte { none, red, blue };

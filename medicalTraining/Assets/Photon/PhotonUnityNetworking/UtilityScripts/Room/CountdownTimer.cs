@@ -29,7 +29,7 @@ namespace Photon.Pun.UtilityScripts
     /// from Unity's OnEnable function for example. For unsubscribing simply call CountdownTimer.OnCountdownTimerHasExpired -= OnCountdownTimerIsExpired;.
     /// You can do this from Unity's OnDisable function for example.
     /// </summary>
-    public class CountdownTimer : MonoBehaviourPunCallbacks
+    public class CountdownTimer : MonoBehaviourPunCallback
     {
         public const string CountdownStartTime = "StartTime";
 

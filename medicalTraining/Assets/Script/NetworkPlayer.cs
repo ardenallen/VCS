@@ -4,11 +4,13 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class NetworkPlayer : MonoBehaviourPun
+public class NetworkPlayer : MonoBehaviourPun,IPunObservable
 {
     public GameObject avatar;
     public Transform playerGlobal;
     public Transform playerLocal;
+
+    private PhotonView _pv;
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +23,18 @@ public class NetworkPlayer : MonoBehaviourPun
             transform.SetParent(playerLocal);
             transform.localPosition = Vector3.zero;
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnPhotonSerializeView(PhotonStream stream,PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(stream.IsWriting)
+        if (stream.IsWriting)
         {
             stream.SendNext(playerGlobal.position);
             stream.SendNext(playerGlobal.rotation);

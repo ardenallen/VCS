@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Photon.Pun.Demo.Asteroids
 {
-    public class LobbyMainPanel : MonoBehaviourPunCallbacks
+    public class LobbyMainPanel : MonoBehaviourPunCallback
     {
         [Header("Login Panel")]
         public GameObject LoginPanel;

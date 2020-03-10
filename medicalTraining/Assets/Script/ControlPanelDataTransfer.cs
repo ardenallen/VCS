@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.Video;
 
 public class ControlPanelDataTransfer : MonoBehaviourPun
 {
@@ -51,7 +52,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         {
             vitalmonitor.transform.Find(obj + "/Number").GetComponent<Text>().text = numbers;
         }
-        //GameObject.Find("VitalPanel/Panel/RawImage/HR/Number").GetComponent<Text>().text = numbers;
     }
     [PunRPC]
     public void RPC_IVFluid(bool iv_vis)

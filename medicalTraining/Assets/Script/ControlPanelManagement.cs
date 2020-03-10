@@ -36,7 +36,7 @@ public class ControlPanelManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //videoPlayer.clip = hr76;
+        videoPlayer.clip = hr76;
         lightStates = lights.activeInHierarchy;
         posSte = StethoscopeTrigger.transform.position;
     }
@@ -54,7 +54,6 @@ public class ControlPanelManagement : MonoBehaviour
 
         if (StethoscopeTrigger.GetComponent<OVRGrabbable>().isGrabbed == true)
         {
-            //StethoscopeTrigger.GetComponent<OVRGrabbable>().enabled = false;
             rightHand.ForceRelease(StethoscopeTrigger.GetComponent<OVRGrabbable>());
 
             StethoscopeTrigger.SetActive(false);

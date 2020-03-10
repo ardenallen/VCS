@@ -4,21 +4,26 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
-public class NetworkLauncher : MonoBehaviourPunCallbacks
+public class NetworkLauncher : MonoBehaviourPunCallback
 {
     public GameObject welcomeScreen;
     public GameObject usernameScreen;
     public GameObject passcodeScreen;
     public GameObject roleScreen;
+    public GameObject instructionScreen;
+    public GameObject startScreen;
     public GameObject loadingScreen;
 
     public Text playerName;
-    public Text[] roomNumber;
+    public Text roomNumber;
     public string charactor;
 
     public Slider progressBar;
     public Text progressPercentage;
+
+    public VideoPlayer ins;
 
     private string code;
 
@@ -33,12 +38,17 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
     {
         if (welcomeScreen.activeInHierarchy == true)
         {
-            if (Input.anyKeyDown)
+            if (OVRInput.GetDown(OVRInput.Button.Any))
             {
                 welcomeScreen.SetActive(false);
                 usernameScreen.SetActive(true);
             }
         }
+        if (instructionScreen.activeSelf)
+        {
+            Invoke("ShowStart", (float)ins.clip.length);
+        }
+
     }
 
     public override void OnConnectedToMaster()
@@ -59,14 +69,14 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
 
     public void CodeButton()
     {
-        string[] strg = new string[roomNumber.Length];
-        for (int i = 0; i < roomNumber.Length; i++)
-        {
-            strg[i] = roomNumber[i].text;            
-        }
-        code = string.Concat(strg);
+        //string[] strg = new string[roomNumber.Length];
+        //for (int i = 0; i < roomNumber.Length; i++)
+        //{
+        //    strg[i] = roomNumber[i].text;            
+        //}
+        //code = string.Concat(strg);
 
-
+        code = roomNumber.text;
         passcodeScreen.SetActive(false);
         roleScreen.SetActive(true);
     }
@@ -90,20 +100,33 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
         }
 
         roleScreen.SetActive(false);
-        loadingScreen.SetActive(true);
-
-        PhotonNetwork.AutomaticallySyncScene = true;
-        StartCoroutine(LoadLevelAsync());
+        instructionScreen.SetActive(true);
     }
-
-
-    IEnumerator LoadLevelAsync()
+    public void SkipButton()
     {
-        PhotonNetwork.LoadLevel(1);
+        instructionScreen.SetActive(false);
+        loadingScreen.SetActive(true);
 
         RoomOptions options = new RoomOptions { MaxPlayers = 3 };
         PhotonNetwork.JoinOrCreateRoom(code, options, default);
+        //PhotonNetwork.LoadLevel(1);
+        //StartCoroutine(LoadLevelAsync());
+    }
+    public void StartTrainingButton()
+    {
+        loadingScreen.SetActive(true);
 
+        RoomOptions options = new RoomOptions { MaxPlayers = 3 };
+        PhotonNetwork.JoinOrCreateRoom(code, options, default);
+        //PhotonNetwork.LoadLevel(1);
+        //StartCoroutine(LoadLevelAsync());
+    }
+
+    IEnumerator LoadLevelAsync()
+    {
+        //PhotonNetwork.LoadLevel(1);
+        PhotonNetwork.IsMessageQueueRunning = false;
+       // AsyncOperation async = PhotonNetwork.LoadLevelAsync;
         while (PhotonNetwork.LevelLoadingProgress < 1)
         {
             progressPercentage.text = "Loading..." + (int)(PhotonNetwork.LevelLoadingProgress * 100) + "%";
@@ -112,16 +135,21 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
             yield return new WaitForEndOfFrame();
         }
     }
+
+    public void ShowStart()
+    {
+        startScreen.SetActive(true);
+    }
+
+
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel(1);
+    }
 }
 
-    //public override void OnJoinedRoom()
-    //{
-    //    PhotonNetwork.LoadLevel(1);
-    //}
-
-
-    //public override void OnJoinedRoom()
-    //{
-    //    base.OnJoinedRoom();
-    //    PhotonNetwork.Instantiate("Player", new Vector3(-4, 1, 0), Quaternion.identity, 0);
-    //}
+//public override void OnJoinedRoom()
+//{
+//    base.OnJoinedRoom();
+//    PhotonNetwork.Instantiate("Player", new Vector3(-4, 1, 0), Quaternion.identity, 0);
+//}

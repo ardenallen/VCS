@@ -12,8 +12,10 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private bool _lightState;
     private string Vitalname;
     private string Vitalnumber;
+    private string objName;
+    private bool objState;
     private GameObject vitalmonitor;
-    private bool _iv;
+    private GameObject changeables;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +23,8 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         pv = GetComponent<PhotonView>();
 
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
-
-        Vitalname = controlPanelManagement.vitalName;
-        Vitalnumber = controlPanelManagement.vitalNumber;
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
+        changeables = GameObject.Find("TraumaBay/Changeables");
     }
 
     // Update is called once per frame
@@ -35,10 +35,12 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
             _lightState = controlPanelManagement.lightStates;
         }
-        if (_iv != controlPanelManagement.iv_vis)
+        if (controlPanelManagement.vis_changed)
         {
-            pv.RPC("RPC_IVFluid", RpcTarget.AllBuffered, controlPanelManagement.iv_vis);
-            _iv = controlPanelManagement.iv_vis;
+            objName = controlPanelManagement.objname;
+            objState = controlPanelManagement.objvis;
+            pv.RPC("RPC_ToggleVis", RpcTarget.AllBuffered, objName, objState);
+            controlPanelManagement.vis_changed = false;
         }
         if (Vitalname != controlPanelManagement.vitalName || Vitalnumber != controlPanelManagement.vitalNumber)
         {
@@ -62,8 +64,9 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void RPC_IVFluid(bool iv_vis)
+    public void RPC_ToggleVis(string obj, bool val)
     {
-        controlPanelManagement.iv_fluid.SetActive(iv_vis);
+        GameObject o = changeables.transform.Find(obj).gameObject;
+        o.SetActive(val);
     }
 }

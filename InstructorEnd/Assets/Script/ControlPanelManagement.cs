@@ -25,13 +25,17 @@ public class ControlPanelManagement : MonoBehaviour
     public Button confirmChange;
 
     public GameObject[] vitalMode;
+    public GameObject[] sliders;
     public GameObject[] bodyVitalMode;
 
     public string vitalName;
     public string vitalNumber;
+    public GameObject[] objs;
+    public Dictionary<string, GameObject> objects;
 
     public GameObject iv_fluid;
     public bool iv_vis;
+    
 
 
     // Start is called before the first frame update
@@ -45,6 +49,16 @@ public class ControlPanelManagement : MonoBehaviour
         {
             AddTriggersListener(vitalMode[i], EventTriggerType.PointerDown, OnPointerDown);
         }
+
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            AddTriggersListener(sliders[i], EventTriggerType.PointerDown, UpdateValue);
+        }
+
+        //for (int i = 0; i < objs.Length; i++)
+        //{
+        //    objects.Add(objs[i].name, objs[i]);
+        //}
 
         lightStates = lights.activeInHierarchy;
         iv_vis = iv_fluid.activeInHierarchy;
@@ -128,5 +142,14 @@ public class ControlPanelManagement : MonoBehaviour
     void OnConfirmChange(Text _text)
     {
         _text.text = newFigure.text;
+    }
+
+    private void UpdateValue(BaseEventData eventData)
+    {
+        GameObject obj = EventSystem.current.currentSelectedGameObject;
+        if (obj.GetComponent<Slider>().value == 0)
+            obj.GetComponent<Slider>().value = 1;
+        else
+            obj.GetComponent<Slider>().value = 0;
     }
 }

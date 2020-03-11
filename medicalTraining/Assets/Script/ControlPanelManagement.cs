@@ -32,18 +32,18 @@ public class ControlPanelManagement : MonoBehaviour
 
     private bool breathStatus;
     private Vector3 posSte;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         videoPlayer.clip = hr76;
-        lightStates = lights.activeInHierarchy;
+        //lightStates = lights.activeInHierarchy;
         posSte = StethoscopeTrigger.transform.position;
     }
 
     // Update is called once per frame
     void Update()
-{
+    {
         //lights.SetActive(lightStates);
 
         breathStatus = breathArea.GetComponent<CollisionDetection>().isTriggered;
@@ -75,25 +75,26 @@ public class ControlPanelManagement : MonoBehaviour
                 senario.SetActive(false);
             }
         }
-}
+    } 
 
-public void TurnOffLight()
-{
-    lightStates = false;
 
-    turnOffLightBtn.SetActive(false);
-    turnOnLightBtn.SetActive(true);
+//public void TurnOffLight()
+//{
+//    lightStates = false;
 
-}
+//    turnOffLightBtn.SetActive(false);
+//    turnOnLightBtn.SetActive(true);
 
-public void TurnOnLight()
-{
-    lightStates = true;
+//}
 
-    turnOnLightBtn.SetActive(false);
-    turnOffLightBtn.SetActive(true);
+//public void TurnOnLight()
+//{
+//    lightStates = true;
 
-}
+//    turnOnLightBtn.SetActive(false);
+//    turnOffLightBtn.SetActive(true);
+
+//}
     void ShowPlaceHolder()
     {
         placeHolder.SetActive(true);

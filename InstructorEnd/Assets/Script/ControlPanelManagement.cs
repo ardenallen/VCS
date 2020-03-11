@@ -30,12 +30,12 @@ public class ControlPanelManagement : MonoBehaviour
 
     public string vitalName;
     public string vitalNumber;
-    public GameObject[] objs;
-    public Dictionary<string, GameObject> objects;
+   
+    public bool vis_changed;
 
-    public GameObject iv_fluid;
-    public bool iv_vis;
-    
+    public string objname;
+    public bool objvis;
+
 
 
     // Start is called before the first frame update
@@ -55,24 +55,7 @@ public class ControlPanelManagement : MonoBehaviour
             AddTriggersListener(sliders[i], EventTriggerType.PointerDown, UpdateValue);
         }
 
-        //for (int i = 0; i < objs.Length; i++)
-        //{
-        //    objects.Add(objs[i].name, objs[i]);
-        //}
-
         lightStates = lights.activeInHierarchy;
-        iv_vis = iv_fluid.activeInHierarchy;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ToggleIVFluid()
-    {
-        iv_vis = !iv_vis;
     }
 
     public void TurnOffLight()
@@ -102,8 +85,6 @@ public class ControlPanelManagement : MonoBehaviour
             _trigger = _gameObject.AddComponent<EventTrigger>();
             _trigger.triggers = new List<EventTrigger.Entry>();
         }
-        
-        
 
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = _event;
@@ -147,9 +128,17 @@ public class ControlPanelManagement : MonoBehaviour
     private void UpdateValue(BaseEventData eventData)
     {
         GameObject obj = EventSystem.current.currentSelectedGameObject;
+        objname = obj.transform.parent.name;
         if (obj.GetComponent<Slider>().value == 0)
+        {
             obj.GetComponent<Slider>().value = 1;
+            objvis = true;
+        }
         else
+        {
             obj.GetComponent<Slider>().value = 0;
+            objvis = false;
+        }
+        vis_changed = true;
     }
 }

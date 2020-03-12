@@ -42,11 +42,12 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_ToggleVis", RpcTarget.AllBuffered, objName, objState);
             controlPanelManagement.vis_changed = false;
         }
-        if (Vitalname != controlPanelManagement.vitalName || Vitalnumber != controlPanelManagement.vitalNumber)
+        if (controlPanelManagement.update_vitals)
         {
             Vitalname = controlPanelManagement.vitalName;
             Vitalnumber = controlPanelManagement.vitalNumber;
             pv.RPC("RPC_VitalChange", RpcTarget.AllBuffered, Vitalname, Vitalnumber);
+            controlPanelManagement.update_vitals = false;
         }
     }
 

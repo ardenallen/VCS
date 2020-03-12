@@ -32,6 +32,7 @@ public class ControlPanelManagement : MonoBehaviour
     public string vitalNumber;
    
     public bool vis_changed;
+    public bool update_vitals;
 
     public string objname;
     public bool objvis;
@@ -106,11 +107,11 @@ public class ControlPanelManagement : MonoBehaviour
         category.text = "Change " + obj.name;
       
         oldFigure.text = obj.transform.Find("Number").GetComponent<Text>().text;
+        vitalName = obj.name;
 
         confirmChange.onClick.AddListener(
             delegate ()
            {
-               vitalName = obj.name;
                if (obj.name == vitalName)
                {
                    if (input.text != "")
@@ -121,6 +122,7 @@ public class ControlPanelManagement : MonoBehaviour
                    {
                        vitalNumber = oldFigure.text;
                    }
+                   update_vitals = true;
                }
 
                changePopup.SetActive(false);

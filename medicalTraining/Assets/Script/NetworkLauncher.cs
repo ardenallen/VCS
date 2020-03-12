@@ -75,10 +75,13 @@ public class NetworkLauncher : MonoBehaviourPunCallback
         //    strg[i] = roomNumber[i].text;            
         //}
         //code = string.Concat(strg);
-
-        code = roomNumber.text;
-        passcodeScreen.SetActive(false);
-        roleScreen.SetActive(true);
+        if (roomNumber.text.Length >= 3)
+        {
+            code = roomNumber.text;
+            passcodeScreen.SetActive(false);
+            roleScreen.SetActive(true);
+        }
+        
     }
 
     public void RoleSelectionButton()

@@ -17,6 +17,7 @@ public class ControlPanelManagement : MonoBehaviour
 
     public GameObject breathArea;
 
+    public GameObject StethoscopePrefab;
     public GameObject StethoscopeTrigger;
     public GameObject StethoscopeOnHand;
 
@@ -52,15 +53,36 @@ public class ControlPanelManagement : MonoBehaviour
             StethoscopeOnHand.transform.localPosition = Vector3.zero;
         }
 
+        //if (StethoscopeTrigger.GetComponent<GrabDetect>().isTrigered == true && OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) &&
+        //    OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
+        //{
+        //    StethoscopeTrigger.GetComponent<GrabDetect>().isTrigered = false;
+        //    StethoscopeTrigger.SetActive(false);
+        //    StethoscopeOnHand.SetActive(true);
+        //    Debug.Log(1);
+        //}
+        //else if (StethoscopeTrigger.GetComponent<GrabDetect>().isTrigered == false && OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
+        //{
+        //    Debug.Log(2);
+        //    StethoscopeTrigger.transform.position = rightHand.transform.position;
+        //    StethoscopeTrigger.SetActive(true);
+        //    StethoscopeOnHand.SetActive(false);
+        //}
         if (StethoscopeTrigger.GetComponent<OVRGrabbable>().isGrabbed == true)
         {
-            rightHand.ForceRelease(StethoscopeTrigger.GetComponent<OVRGrabbable>());
-
             StethoscopeTrigger.SetActive(false);
             StethoscopeOnHand.SetActive(true);
+            rightHand.ForceRelease(StethoscopeTrigger.GetComponent<OVRGrabbable>());
             Invoke("ShowPlaceHolder", 2);
         }
-        if (placeHolder.GetComponent<ColliderDetect>().isTrigered == true)
+        //if (StethoscopeTrigger.activeSelf == false && OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
+        //{
+        //    Debug.Log(1);
+        //    Destroy(StethoscopeTrigger);
+        //    StethoscopeTrigger = Instantiate(StethoscopePrefab, rightHand.transform, true);
+        //    StethoscopeOnHand.SetActive(false);
+        //}
+        if (placeHolder.GetComponent<ColliderDetect>().isTriggered == true)
         {
             StethoscopeOnHand.SetActive(false);
             StethoscopeTrigger.transform.position = posSte;
@@ -70,7 +92,7 @@ public class ControlPanelManagement : MonoBehaviour
 
         if (senario.activeSelf == true)
         {
-            if (OVRInput.GetDown(OVRInput.Button.One))
+            if (OVRInput.GetDown(OVRInput.Button.Any))
             {
                 senario.SetActive(false);
             }

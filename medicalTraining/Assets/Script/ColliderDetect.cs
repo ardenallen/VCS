@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColliderDetect : MonoBehaviour
 {
-    public bool isTrigered;
+    public bool isTriggered;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +19,19 @@ public class ColliderDetect : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Stethoscope")
+        if (other.name == "Stethoscope")
         {
-            isTrigered = true
-;        }
+            isTriggered = true;
+            ;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name== "Stethoscope")
+        if (other.name == "Stethoscope")
         {
-            isTrigered = false;
-;
+            isTriggered = false;
+            ;
         }
     }
 }

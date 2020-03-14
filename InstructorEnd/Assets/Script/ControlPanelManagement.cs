@@ -21,8 +21,8 @@ public class ControlPanelManagement : MonoBehaviour
     public GameObject changePopup;
 
     public Text category;
+    public InputField input;
     public Text oldFigure;
-    public Text newFigure;
     public Button confirmChange;
 
     public GameObject[] vitalMode;
@@ -33,9 +33,11 @@ public class ControlPanelManagement : MonoBehaviour
     public string vitalNumber;
 
     public bool vis_changed;
+    public bool update_vitals;
 
     public string objname;
     public bool objvis;
+    private Color col = new Color(1.0f, 1.0f, 1.0f, 0.3529412f);
 
     
     
@@ -99,22 +101,30 @@ public class ControlPanelManagement : MonoBehaviour
 
     private void OnPointerDown(BaseEventData eventData)
     {
+        input.text = null;
         changePopup.SetActive(true);
 
         GameObject obj = EventSystem.current.currentSelectedGameObject;
 
-        category.text = "Change" + obj.name;
-        vitalName = obj.name;
-
+        category.text = "Change " + obj.name;
+      
         oldFigure.text = obj.transform.Find("Number").GetComponent<Text>().text;
+        vitalName = obj.name;
 
         confirmChange.onClick.AddListener(
             delegate ()
            {
                if (obj.name == vitalName)
                {
-                   obj.transform.Find("Number").GetComponent<Text>().text = newFigure.text;
-                   vitalNumber = newFigure.text;
+                   if (input.text != "")
+                   {
+                       obj.transform.Find("Number").GetComponent<Text>().text = input.text;
+                       vitalNumber = input.text;
+                   } else
+                   {
+                       vitalNumber = oldFigure.text;
+                   }
+                   update_vitals = true;
                }
 
                changePopup.SetActive(false);
@@ -129,11 +139,13 @@ public class ControlPanelManagement : MonoBehaviour
         if (obj.GetComponent<Slider>().value == 0)
         {
             obj.GetComponent<Slider>().value = 1;
+            obj.transform.parent.GetComponent<Image>().color = Color.white;
             objvis = true;
         }
         else
         {
             obj.GetComponent<Slider>().value = 0;
+            obj.transform.parent.GetComponent<Image>().color = col;
             objvis = false;
         }
         vis_changed = true;

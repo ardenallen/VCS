@@ -15,6 +15,8 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private string Vitalnumber;
     private GameObject vitalmonitor;
 
+    private GameObject changeables;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
 
         _lightState = controlPanelManagement.lightStates;
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
+
+        changeables = GameObject.Find("TraumaBay/Changeables");
     }
 
     // Update is called once per frame
@@ -54,8 +58,9 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         }
     }
     [PunRPC]
-    public void RPC_IVFluid(bool iv_vis)
+    public void RPC_ToggleVis(string obj, bool val)
     {
-        controlPanelManagement.iv_fluid.SetActive(iv_vis);
+        GameObject o = changeables.transform.Find(obj).gameObject;
+        o.SetActive(val);
     }
 }

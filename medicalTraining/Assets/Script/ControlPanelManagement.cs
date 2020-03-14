@@ -34,12 +34,19 @@ public class ControlPanelManagement : MonoBehaviour
     private bool breathStatus;
     private Vector3 posSte;
 
+    public GameObject[] items;
+
     // Start is called before the first frame update
     void Start()
     {
         videoPlayer.clip = hr76;
         //lightStates = lights.activeInHierarchy;
         posSte = StethoscopeTrigger.transform.position;
+
+        for(int i = 0; i < items.Length; i++)
+        {
+            items[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame

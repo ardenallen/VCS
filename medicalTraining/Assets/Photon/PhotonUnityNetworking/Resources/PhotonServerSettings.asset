@@ -40,6 +40,6 @@ MonoBehaviour:
   - ChangeColour
   - RPC_VitalChange
   - RPC_IVFluid
-  - TransformUpdate
+  - RPC_ToggleVis
   DisableAutoOpenWizard: 1
   ShowSettings: 1

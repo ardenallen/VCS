@@ -10,7 +10,7 @@ public class TrainingManager : MonoBehaviourPun
     //public GameObject Students_TP;
     //public GameObject Instructor;
 
-
+    public GameObject player;
 
     //public void ReadyToPlay()
     //{
@@ -35,7 +35,7 @@ public class TrainingManager : MonoBehaviourPun
             PhotonNetwork.Instantiate("NetworkPlayer", new Vector3(-4, 1, 0), Quaternion.identity, 0);
         }
         else
-            PhotonNetwork.Instantiate("Instructor", new Vector3(0, 0, 0), Quaternion.identity, 0);
+           PhotonNetwork.Instantiate("Instructor", new Vector3(0, 0, 0), Quaternion.identity, 0);
 
 
     }

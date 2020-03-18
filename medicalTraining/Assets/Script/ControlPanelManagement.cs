@@ -16,11 +16,6 @@ public class ControlPanelManagement : MonoBehaviour
     public VideoClip hr125;
 
 
-
-    public GameObject[] vitals;
-
-    public GameObject iv_fluid;
-
     public GameObject senario;
 
 

@@ -45,8 +45,6 @@ public class ControlPanelManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        videoPlayer.clip = hr76;
-
         changePopup.SetActive(false);
 
         for (int i = 0; i < vitalMode.Length; i++)
@@ -81,8 +79,6 @@ public class ControlPanelManagement : MonoBehaviour
     }
     private void AddTriggersListener(GameObject _gameObject, EventTriggerType _event, UnityAction<BaseEventData> _action)
     {
-
-
         EventTrigger _trigger = _gameObject.GetComponent<EventTrigger>();
         if (_trigger == null)
         {

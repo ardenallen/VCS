@@ -11,6 +11,7 @@ public class Stethoscope : MonoBehaviour
     public GameObject rightHand;
 
     public GameObject breathingArea;
+    public GameObject centerPoint;
 
 
 
@@ -26,6 +27,7 @@ public class Stethoscope : MonoBehaviour
     {
         GrabStethoscope();
 
+        PositionControl();
 
     }
 
@@ -42,7 +44,7 @@ public class Stethoscope : MonoBehaviour
         }
         else if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger) || OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
         {
-            if(StethoscopeTrigger.activeSelf == false)
+            if(StethoscopeOnHand.activeSelf == true)
             {
                 StethoscopeOnHand.SetActive(false);
                 Destroy(StethoscopeTrigger);
@@ -52,16 +54,27 @@ public class Stethoscope : MonoBehaviour
                     
         }
        
-        void PositionControl()
-        {
-
-        }
+       
       
         
         
         
     }
-    
+    void PositionControl()
+    {
+        if (breathingArea.GetComponent<CollisionDetection>().isTriggered == true)
+        {
+            StethoscopeOnHand.transform.position = new Vector3(StethoscopeOnHand.transform.position.x, centerPoint.transform.position.y, StethoscopeOnHand.transform.position.z);
+           
+            if (Vector3.Distance(StethoscopeOnHand.transform.position, rightHand.transform.position) > 0.1)
+            {
+                breathingArea.GetComponent<CollisionDetection>().isTriggered = false;
+            }
+        }
+        else
 
-    
+            StethoscopeOnHand.transform.localPosition = Vector3.zero;
+    }
+
+
 }

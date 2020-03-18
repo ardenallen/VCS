@@ -41,5 +41,6 @@ MonoBehaviour:
   - RPC_VitalChange
   - RPC_IVFluid
   - RPC_ToggleVis
+  - RPC_ObjSync
   DisableAutoOpenWizard: 1
   ShowSettings: 1

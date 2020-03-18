@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +9,10 @@ public class color_change : MonoBehaviour
     public int upperLimit;
     public int lowerLimit;
     private Text number;
-    //public Color normal;
     private Color normal;
-    private string objName;
+
     private ControlPanelManagement cpm;
+    private string objName;
 
     // Update is called once per frame
     void Start()
@@ -25,11 +25,11 @@ public class color_change : MonoBehaviour
     }
 
     void Update()
-    {
+    {  
         int value = int.Parse(number.text);
-        if (value > upperLimit || value < lowerLimit)
+        if (value > upperLimit  || value < lowerLimit)
         {
-            number.color = Color.red;
+            number.color = Color.red;   
         }
         else
         {

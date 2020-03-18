@@ -70,4 +70,12 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         GameObject o = changeables.transform.Find(obj).gameObject;
         o.SetActive(val);
     }
+
+    [PunRPC]
+    public void RPC_ObjSync(string obj, Vector3 pos, Quaternion rot)
+    {
+        Transform go = changeables.transform.Find(obj);
+        go.position = pos;
+        go.rotation = rot;
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
 public class ControlPanelManagement : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class ControlPanelManagement : MonoBehaviour
     public VideoClip hr125;
 
     public GameObject changePopup;
-   
+
     public Text category;
     public InputField input;
     public Text oldFigure;
@@ -30,7 +31,7 @@ public class ControlPanelManagement : MonoBehaviour
 
     public string vitalName;
     public string vitalNumber;
-   
+
     public bool vis_changed;
     public bool update_vitals;
 
@@ -38,16 +39,15 @@ public class ControlPanelManagement : MonoBehaviour
     public bool objvis;
     private Color col = new Color(1.0f, 1.0f, 1.0f, 0.3529412f);
 
-
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        videoPlayer.clip = hr76;
-
         changePopup.SetActive(false);
 
-        for(int i = 0; i < vitalMode.Length; i++)
+        for (int i = 0; i < vitalMode.Length; i++)
         {
             AddTriggersListener(vitalMode[i], EventTriggerType.PointerDown, OnPointerDown);
         }
@@ -79,8 +79,6 @@ public class ControlPanelManagement : MonoBehaviour
     }
     private void AddTriggersListener(GameObject _gameObject, EventTriggerType _event, UnityAction<BaseEventData> _action)
     {
-
-        
         EventTrigger _trigger = _gameObject.GetComponent<EventTrigger>();
         if (_trigger == null)
         {
@@ -90,7 +88,7 @@ public class ControlPanelManagement : MonoBehaviour
 
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = _event;
-        
+
         entry.callback = new EventTrigger.TriggerEvent();
         UnityAction<BaseEventData> callback = new UnityAction<BaseEventData>(_action);
         entry.callback.AddListener(callback);
@@ -126,7 +124,7 @@ public class ControlPanelManagement : MonoBehaviour
                }
 
                changePopup.SetActive(false);
-            }
+           }
        );
     }
 
@@ -149,3 +147,4 @@ public class ControlPanelManagement : MonoBehaviour
         vis_changed = true;
     }
 }
+

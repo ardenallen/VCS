@@ -2656,6 +2656,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VitalPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2887229267908986188, guid: 898fe3a4658c600408a431d2d5d02ade,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2887229267908986192, guid: 898fe3a4658c600408a431d2d5d02ade,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3951,10 +3956,7 @@ MonoBehaviour:
   ySpeed: 2
   yMinLimit: -90
   yMaxLimit: 90
-  scaleSpeed: 5
-  distance: 5
-  maxDistance: 10
-  minDistance: 5
+  zoomSpeed: 100
 --- !u!1001 &205783797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4523,17 +4525,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.2815
+      value: 3.526
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5134
+      value: -0.33311
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.51895
+      value: -0.513
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
@@ -4578,17 +4580,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.027544983
+      value: 0.018
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.027544983
+      value: 0.017776
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.027544983
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -2050915589958064501, guid: 9e5847c2adacfe340a4f04c63321934c,
         type: 3}
@@ -37887,8 +37889,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529201147819344636}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.132, y: 34.376, z: 21.546}
-  m_LocalScale: {x: 2.3344169, y: 2.3344169, z: 2.3344169}
+  m_LocalPosition: {x: 14.69999, y: 10.99999, z: 12.7}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 5006512735021167953}
   m_RootOrder: 69
@@ -38117,8 +38119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2948416581455365465}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.132, y: 34.376, z: 21.546}
-  m_LocalScale: {x: 2.3344169, y: 2.3344169, z: 2.3344169}
+  m_LocalPosition: {x: 14.69999, y: 10.99999, z: 12.7}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 5006512735021167953}
   m_RootOrder: 54
@@ -41085,8 +41087,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4960277533764612547}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.132, y: 34.376, z: 21.546}
-  m_LocalScale: {x: 2.3344169, y: 2.3344169, z: 2.3344169}
+  m_LocalPosition: {x: 14.69999, y: 10.99999, z: 12.7}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 5006512735021167953}
   m_RootOrder: 68
@@ -44797,8 +44799,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8436372757438261588}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.132, y: 34.376, z: 21.546}
-  m_LocalScale: {x: 2.3344169, y: 2.3344169, z: 2.3344169}
+  m_LocalPosition: {x: 14.69999, y: 10.99999, z: 12.7}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 5006512735021167953}
   m_RootOrder: 53

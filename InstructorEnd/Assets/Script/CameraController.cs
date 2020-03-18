@@ -18,10 +18,7 @@ public class CameraController : MonoBehaviour
     public float yMinLimit = -90f; //Minimum roteting angle y axis
     public float yMaxLimit = 90f;  //Miximum roteting angle y axis
 
-    public float scaleSpeed = 5f;
-    public float distance = 5f;
-    public float maxDistance = 10f;
-    public float minDistance = 5f;
+    public float zoomSpeed = 500f;
 
     //if mouse right button down then is true
     private bool isRotate;
@@ -29,6 +26,8 @@ public class CameraController : MonoBehaviour
     private float x;
     //Rotating angle for world (x axis)
     private float y;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +45,7 @@ public class CameraController : MonoBehaviour
     {     
          MoveCharacter();
          RotateCamera();
+         ZoomCamera();
     }
 
 
@@ -118,10 +118,6 @@ public class CameraController : MonoBehaviour
             //When mouse moving left and right, Mouse X equals moving on Y axis in 3D
             x += Input.GetAxis("Mouse X") * xSpeed;
 
-            //Quaternion rotation = Quaternion.Euler(y, x, 0);
-            //cam.transform.rotation = rotation;
-
-            //equals to above 2 lines
             cam.transform.eulerAngles = new Vector3(y, x, 0);
 
 
@@ -133,24 +129,13 @@ public class CameraController : MonoBehaviour
 
     }
 
-    //void ZoomCamera()
-    //{
-    //    distance -= Input.GetAxis("Mouse ScrollWheel") * scaleSpeed;
-    //    distance = Mathf.Clamp(distance, minDistance, maxDistance);
+    void ZoomCamera()
+    {
+        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed));
+        }
 
-    //    //重新计算位置  
-    //    Vector3 mPosition = mRotation * new Vector3(0.0F, 0.0F, -Distance) + Target.position;
-
-    //    //设置相机的位置  
-    //    if (isNeedDamping)
-    //    {
-    //        transform.position = Vector3.Lerp(transform.position, mPosition, Time.deltaTime * Damping);
-    //    }
-    //    else
-    //    {
-    //        transform.position = mPosition;
-    //    }
-
-    //}
+    }
 }
  

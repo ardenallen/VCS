@@ -15,6 +15,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private bool objState;
     private GameObject vitalmonitor;
     private GameObject changeables;
+    private Animator patient;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
         changeables = GameObject.Find("TraumaBay/Changeables");
+        patient = GameObject.Find("Characters/mannequin").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             Vitalnumber = controlPanelManagement.vitalNumber;
             pv.RPC("RPC_VitalChange", RpcTarget.AllBuffered, Vitalname, Vitalnumber);
             controlPanelManagement.update_vitals = false;
+        }
+        if (controlPanelManagement.patientButton.pressed_changed)
+        {
+            pv.RPC("RPC_talking", RpcTarget.AllBuffered, controlPanelManagement.patientButton.talking);
+            controlPanelManagement.patientButton.pressed_changed = false;
         }
     }
 
@@ -64,5 +71,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         Transform go = changeables.transform.Find(obj);
         go.position = pos;
         go.rotation = rot;
+    }
+
+    [PunRPC]
+    public void RPC_talking(bool talking)
+    {
+        patient.SetBool("isSpeaking", talking);
     }
 }

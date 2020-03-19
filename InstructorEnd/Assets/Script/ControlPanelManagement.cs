@@ -27,15 +27,14 @@ public class ControlPanelManagement : MonoBehaviour
     public string vitalName;
     public string vitalNumber;
 
+    public PatientButton patientButton;
     public bool vis_changed;
     public bool update_vitals;
 
     public string objname;
     public bool objvis;
     private Color col = new Color(1.0f, 1.0f, 1.0f, 0.3529412f);
-
-    
-    
+ 
 
     // Start is called before the first frame update
     void Start()

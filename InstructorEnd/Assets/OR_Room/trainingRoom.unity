@@ -20802,6 +20802,11 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[1]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4099066801516922897, guid: 16e3825c6260c434c91fb4b69cebd373,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3497088272559043685, guid: 16e3825c6260c434c91fb4b69cebd373,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -29427,6 +29432,7 @@ MonoBehaviour:
   bodyVitalMode: []
   vitalName: 
   vitalNumber: 
+  patientButton: {fileID: 1745540063}
   vis_changed: 0
   update_vitals: 0
   objname: 
@@ -32187,7 +32193,6 @@ GameObject:
   - component: {fileID: 1745540058}
   - component: {fileID: 1745540061}
   - component: {fileID: 1745540063}
-  - component: {fileID: 1745540062}
   m_Layer: 5
   m_Name: Patient
   m_TagString: Untagged
@@ -32307,49 +32312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebacf925808de7448b193fea00f1f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1745540062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745540056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1745540061}
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1745540061}
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1745540063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32359,10 +32321,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745540056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d988b16ca0a9b459b4e073ce02d0e1, type: 3}
+  m_Script: {fileID: 11500000, guid: db69af46dbfff044c8727bcf3c29b0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
+  pressed_changed: 0
+  talking: 0
 --- !u!1 &1746099035
 GameObject:
   m_ObjectHideFlags: 0

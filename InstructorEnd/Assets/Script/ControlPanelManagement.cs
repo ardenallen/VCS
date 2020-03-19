@@ -9,11 +9,6 @@ using Photon.Pun;
 
 public class ControlPanelManagement : MonoBehaviour
 {
-    public GameObject lights;
-    public GameObject turnOffLightBtn;
-    public GameObject turnOnLightBtn;
-    public bool lightStates;
-
     public VideoPlayer videoPlayer;
     public VideoClip hr76;
     public VideoClip hr125;
@@ -32,15 +27,14 @@ public class ControlPanelManagement : MonoBehaviour
     public string vitalName;
     public string vitalNumber;
 
+    public PatientButton patientButton;
     public bool vis_changed;
     public bool update_vitals;
 
     public string objname;
     public bool objvis;
     private Color col = new Color(1.0f, 1.0f, 1.0f, 0.3529412f);
-
-    
-    
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -56,27 +50,8 @@ public class ControlPanelManagement : MonoBehaviour
         {
             AddTriggersListener(sliders[i], EventTriggerType.PointerDown, UpdateValue);
         }
-
-        lightStates = lights.activeInHierarchy;
     }
 
-    public void TurnOffLight()
-    {
-        lightStates = false;
-
-        turnOffLightBtn.SetActive(false);
-        turnOnLightBtn.SetActive(true);
-
-    }
-
-    public void TurnOnLight()
-    {
-        lightStates = true;
-
-        turnOnLightBtn.SetActive(false);
-        turnOffLightBtn.SetActive(true);
-
-    }
     private void AddTriggersListener(GameObject _gameObject, EventTriggerType _event, UnityAction<BaseEventData> _action)
     {
         EventTrigger _trigger = _gameObject.GetComponent<EventTrigger>();

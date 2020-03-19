@@ -42,5 +42,6 @@ MonoBehaviour:
   - RPC_IVFluid
   - RPC_ToggleVis
   - RPC_ObjSync
+  - RPC_talking
   DisableAutoOpenWizard: 1
   ShowSettings: 1

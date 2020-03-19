@@ -16,6 +16,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private GameObject vitalmonitor;
 
     private GameObject changeables;
+    private Animator patient;
 
 
 
@@ -26,32 +27,12 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
 
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
 
-        _lightState = controlPanelManagement.lightStates;
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
 
         changeables = GameObject.Find("TraumaBay/Changeables");
+        patient = GameObject.Find("Characters/mannequin").GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        if(_lightState != controlPanelManagement.lightStates)
-        {
-            pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
-            _lightState = controlPanelManagement.lightStates;
-        }
-
-       
-
-    }
-
-    [PunRPC]
-    public void RPC_LightSwitch(bool lightStates)
-    {
-        controlPanelManagement.lights.SetActive(lightStates);
-        Debug.Log(lightStates);
-    }
     [PunRPC]
     public void RPC_VitalChange(string obj, string numbers)
     {
@@ -73,5 +54,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         Transform go = changeables.transform.Find(obj);
         go.position = pos;
         go.rotation = rot;
+    }
+
+    [PunRPC]
+    public void RPC_talking(bool talking)
+    {
+        patient.SetBool("isSpeaking", talking);
     }
 }

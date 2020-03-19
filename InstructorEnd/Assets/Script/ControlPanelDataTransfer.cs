@@ -9,13 +9,13 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public PhotonView pv;
     public ControlPanelManagement controlPanelManagement;
 
-    private bool _lightState;
     private string Vitalname;
     private string Vitalnumber;
     private string objName;
     private bool objState;
     private GameObject vitalmonitor;
     private GameObject changeables;
+    private Animator patient;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +25,12 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
         changeables = GameObject.Find("TraumaBay/Changeables");
+        patient = GameObject.Find("Characters/mannequin").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_lightState != controlPanelManagement.lightStates)
-        {
-            pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
-            _lightState = controlPanelManagement.lightStates;
-        }
         if (controlPanelManagement.vis_changed)
         {
             objName = controlPanelManagement.objname;
@@ -49,13 +45,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_VitalChange", RpcTarget.AllBuffered, Vitalname, Vitalnumber);
             controlPanelManagement.update_vitals = false;
         }
-    }
-
-    [PunRPC]
-    public void RPC_LightSwitch(bool lightStates)
-    {
-        controlPanelManagement.lights.SetActive(lightStates);
-        Debug.Log(lightStates);
+        if (controlPanelManagement.patientButton.pressed_changed)
+        {
+            pv.RPC("RPC_talking", RpcTarget.AllBuffered, controlPanelManagement.patientButton.talking);
+            controlPanelManagement.patientButton.pressed_changed = false;
+        }
     }
 
     [PunRPC]
@@ -77,5 +71,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         Transform go = changeables.transform.Find(obj);
         go.position = pos;
         go.rotation = rot;
+    }
+
+    [PunRPC]
+    public void RPC_talking(bool talking)
+    {
+        patient.SetBool("isSpeaking", talking);
     }
 }

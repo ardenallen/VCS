@@ -9,7 +9,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public PhotonView pv;
     public ControlPanelManagement controlPanelManagement;
 
-    private bool _lightState;
     private string Vitalname;
     private string Vitalnumber;
     private string objName;
@@ -30,11 +29,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if (_lightState != controlPanelManagement.lightStates)
-        {
-            pv.RPC("RPC_LightSwitch", RpcTarget.All, controlPanelManagement.lightStates);
-            _lightState = controlPanelManagement.lightStates;
-        }
         if (controlPanelManagement.vis_changed)
         {
             objName = controlPanelManagement.objname;
@@ -49,13 +43,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_VitalChange", RpcTarget.AllBuffered, Vitalname, Vitalnumber);
             controlPanelManagement.update_vitals = false;
         }
-    }
-
-    [PunRPC]
-    public void RPC_LightSwitch(bool lightStates)
-    {
-        controlPanelManagement.lights.SetActive(lightStates);
-        Debug.Log(lightStates);
     }
 
     [PunRPC]

@@ -9,11 +9,6 @@ using Photon.Pun;
 
 public class ControlPanelManagement : MonoBehaviour
 {
-    public GameObject lights;
-    public GameObject turnOffLightBtn;
-    public GameObject turnOnLightBtn;
-    public bool lightStates;
-
     public VideoPlayer videoPlayer;
     public VideoClip hr76;
     public VideoClip hr125;
@@ -56,27 +51,8 @@ public class ControlPanelManagement : MonoBehaviour
         {
             AddTriggersListener(sliders[i], EventTriggerType.PointerDown, UpdateValue);
         }
-
-        lightStates = lights.activeInHierarchy;
     }
 
-    public void TurnOffLight()
-    {
-        lightStates = false;
-
-        turnOffLightBtn.SetActive(false);
-        turnOnLightBtn.SetActive(true);
-
-    }
-
-    public void TurnOnLight()
-    {
-        lightStates = true;
-
-        turnOnLightBtn.SetActive(false);
-        turnOffLightBtn.SetActive(true);
-
-    }
     private void AddTriggersListener(GameObject _gameObject, EventTriggerType _event, UnityAction<BaseEventData> _action)
     {
         EventTrigger _trigger = _gameObject.GetComponent<EventTrigger>();

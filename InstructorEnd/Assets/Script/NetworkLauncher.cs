@@ -7,10 +7,6 @@ using UnityEngine.UI;
 
 public class NetworkLauncher : MonoBehaviourPunCallbacks
 {
-    public GameObject nameUI;
-    public GameObject roomUI;
-    //public InputField playerName;
-    //public InputField roomName;
     public Text playerName;
     public Text roomNumber;
     
@@ -25,25 +21,19 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
     {
         base.OnConnectedToMaster();
 
-        nameUI.SetActive(true);
-
-       // PhotonNetwork.JoinOrCreateRoom("TrainingRoom", new Photon.Realtime.RoomOptions() { MaxPlayers=3 },default);
+      // PhotonNetwork.JoinOrCreateRoom("TrainingRoom", new Photon.Realtime.RoomOptions() { MaxPlayers=3 },default);
 
     }
 
-    public void nameButton()
+    public void login()
     {
         PhotonNetwork.NickName = playerName.text;
-        nameUI.SetActive(false);
-        roomUI.SetActive(true);
     }
 
-    public void roomButton()
+    public void startSession()
     {
         if (roomNumber.text.Length < 3)
             return;
-
-        roomUI.SetActive(false);
 
         RoomOptions options = new RoomOptions { MaxPlayers = 4 };
         PhotonNetwork.JoinOrCreateRoom(roomNumber.text, options, default);
@@ -53,11 +43,4 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel(1);
     }
-
-
-    //public override void OnJoinedRoom()
-    //{
-    //    base.OnJoinedRoom();
-    //    PhotonNetwork.Instantiate("Player", new Vector3(-4, 1, 0), Quaternion.identity, 0);
-    //}
 }

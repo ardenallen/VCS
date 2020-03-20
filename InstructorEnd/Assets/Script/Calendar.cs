@@ -11,6 +11,7 @@ public class Calendar : MonoBehaviour
 
     private DateTime iMonth;
     private DateTime curDisplay;
+
     private Color active = new Color(0.6f, 0.6f, 0.6f, 1.0f);
     private Color inactive = new Color(0.2735849f, 0.2735849f, 0.2735849f, 1.0f);
 

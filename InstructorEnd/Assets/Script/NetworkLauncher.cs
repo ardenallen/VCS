@@ -42,6 +42,13 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom(roomNumber.text, options, default);
     }
 
+    public void logout()
+    {
+        PhotonNetwork.NickName = null;
+        Login.SetActive(true);
+        Dashboard.SetActive(false);
+    }
+
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel(1);

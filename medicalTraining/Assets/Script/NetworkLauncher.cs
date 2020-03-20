@@ -149,10 +149,28 @@ public class NetworkLauncher : MonoBehaviourPunCallback
     {
         PhotonNetwork.LoadLevel(1);
     }
-}
 
-//public override void OnJoinedRoom()
-//{
-//    base.OnJoinedRoom();
-//    PhotonNetwork.Instantiate("Player", new Vector3(-4, 1, 0), Quaternion.identity, 0);
-//}
+    public void BackToName()
+    {
+        usernameScreen.SetActive(true);
+        passcodeScreen.SetActive(false);
+    }
+
+    public void BackToCode()
+    {
+        passcodeScreen.SetActive(true);
+        roleScreen.SetActive(false);
+    }
+
+    public void BackToRole()
+    {
+        instructionScreen.SetActive(false);
+        roleScreen.SetActive(true);
+    }
+
+    public void ReplayVideo()
+    {
+        instructionScreen.SetActive(true);
+        startScreen.SetActive(false);
+    }
+}

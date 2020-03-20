@@ -10,10 +10,7 @@ public class ControlPanelManagement : MonoBehaviour
     public VideoClip hr76;
     public VideoClip hr125;
 
-
     public GameObject senario;
-
-
 
     public GameObject[] items;
 
@@ -21,6 +18,7 @@ public class ControlPanelManagement : MonoBehaviour
     void Start()
     {
         videoPlayer.clip = hr76;
+
         for (int i = 0; i < items.Length; i++)
         {
             items[i].SetActive(false);

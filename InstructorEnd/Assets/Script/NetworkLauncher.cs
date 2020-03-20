@@ -9,25 +9,28 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
 {
     public Text playerName;
     public Text roomNumber;
+    public GameObject Login;
+    public GameObject Dashboard;
     
     // Start is called before the first frame update
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.AutomaticallySyncScene = true;
+        Login.SetActive(true);
+        Dashboard.SetActive(false);
     }
 
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
-
-      // PhotonNetwork.JoinOrCreateRoom("TrainingRoom", new Photon.Realtime.RoomOptions() { MaxPlayers=3 },default);
-
     }
 
     public void login()
     {
         PhotonNetwork.NickName = playerName.text;
+        Dashboard.SetActive(true);
+        Login.SetActive(false);
     }
 
     public void startSession()

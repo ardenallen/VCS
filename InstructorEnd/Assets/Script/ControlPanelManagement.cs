@@ -34,6 +34,7 @@ public class ControlPanelManagement : MonoBehaviour
     public string objname;
     public bool objvis;
     private Color col = new Color(1.0f, 1.0f, 1.0f, 0.3529412f);
+    private string oldNumber;
  
 
     // Start is called before the first frame update
@@ -50,6 +51,8 @@ public class ControlPanelManagement : MonoBehaviour
         {
             AddTriggersListener(sliders[i], EventTriggerType.PointerDown, UpdateValue);
         }
+
+        AddTriggersListener(input.gameObject, EventTriggerType.Deselect, UpdatePlaceholder);
     }
 
     private void AddTriggersListener(GameObject _gameObject, EventTriggerType _event, UnityAction<BaseEventData> _action)
@@ -78,8 +81,9 @@ public class ControlPanelManagement : MonoBehaviour
         GameObject obj = EventSystem.current.currentSelectedGameObject;
 
         category.text = "Change " + obj.name;
-      
-        oldFigure.text = obj.transform.Find("Number").GetComponent<Text>().text;
+
+        oldNumber = obj.transform.Find("Number").GetComponent<Text>().text;
+        oldFigure.text = oldNumber;
         vitalName = obj.name;
 
         confirmChange.onClick.AddListener(
@@ -120,6 +124,11 @@ public class ControlPanelManagement : MonoBehaviour
             objvis = false;
         }
         vis_changed = true;
+    }
+
+    void UpdatePlaceholder(BaseEventData eventData)
+    {
+        oldFigure.text = oldNumber;
     }
 }
 

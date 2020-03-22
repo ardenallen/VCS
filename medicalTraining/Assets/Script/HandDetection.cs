@@ -22,10 +22,10 @@ public class HandDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        go = grab.grabbedBy.gameObject;
-
         if (grab.isGrabbed == true)
-        {
+        { 
+            go = grab.grabbedBy.gameObject;
+
             if (other.name != go.name)
             {
                     isHand = true;

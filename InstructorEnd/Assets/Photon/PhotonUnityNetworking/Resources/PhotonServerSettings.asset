@@ -43,5 +43,9 @@ MonoBehaviour:
   - RPC_ToggleVis
   - RPC_ObjSync
   - RPC_talking
+  - RPC_ScaleObj
+  - RPC_StethoscopeInUse
+  - RPC_StethoscopeNotUse
+  - RPC_Name
   DisableAutoOpenWizard: 1
   ShowSettings: 1

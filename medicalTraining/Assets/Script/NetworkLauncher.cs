@@ -59,10 +59,14 @@ public class NetworkLauncher : MonoBehaviourPunCallback
 
     public void NameButton()
     {
-        PhotonNetwork.NickName = playerName.text;
+        if (playerName.text.Length >= 3)
+        {
+            PhotonNetwork.NickName = playerName.text;
 
-        usernameScreen.SetActive(false);
-        passcodeScreen.SetActive(true);
+            usernameScreen.SetActive(false);
+            passcodeScreen.SetActive(true);
+        }
+        
 
 
     }

@@ -70,4 +70,10 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     {
         patient.SetBool("isSpeaking", talking);
     }
+
+    [PunRPC]
+    public void RPC_ScaleObj(string obj, bool scale)
+    {
+        changeables.transform.Find(obj).gameObject.SetActive(scale);
+    }
 }

@@ -2108,7 +2108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &645304821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3898,6 +3898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 1054103892}
   roomNumber: {fileID: 1432535645}
+  Login: {fileID: 0}
+  Dashboard: {fileID: 0}
 --- !u!4 &1171853197
 Transform:
   m_ObjectHideFlags: 0
@@ -7682,58 +7684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d2227c142269946b4bd9f81fb85b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayLabels:
-  - {fileID: 1353920865}
-  - {fileID: 1674544933}
-  - {fileID: 922313984}
-  - {fileID: 1517122298}
-  - {fileID: 2095415263}
-  - {fileID: 2116765731}
-  - {fileID: 557193993}
-  - {fileID: 1982883035}
-  - {fileID: 887871229}
-  - {fileID: 812538781}
-  - {fileID: 1659690801}
-  - {fileID: 438985793}
-  - {fileID: 1819272140}
-  - {fileID: 1590287925}
-  - {fileID: 1555757567}
-  - {fileID: 1243869255}
-  - {fileID: 707846136}
-  - {fileID: 436565076}
-  - {fileID: 1994144097}
-  - {fileID: 1518787940}
-  - {fileID: 1313695574}
-  - {fileID: 2084657296}
-  - {fileID: 95033865}
-  - {fileID: 2136669370}
-  - {fileID: 1858923074}
-  - {fileID: 1543837185}
-  - {fileID: 2102093521}
-  - {fileID: 1304851128}
-  - {fileID: 477393732}
-  - {fileID: 361288371}
-  - {fileID: 10416673}
-  - {fileID: 202001594}
-  - {fileID: 1699165740}
-  - {fileID: 1646213797}
-  - {fileID: 89954327}
-  Months:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   HeaderLabel: {fileID: 1586129210}
-  monthCounter: 2
-  yearCounter: 0
+  Labels: {fileID: 0}
 --- !u!1 &1938285484
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Calendar : MonoBehaviour
 {
     public Text HeaderLabel;         //The label used to show the Month
     public GameObject Labels;
+    public GameObject Today;
 
     private DateTime iMonth;
     private DateTime curDisplay;
@@ -24,6 +25,7 @@ public class Calendar : MonoBehaviour
     /*Sets the days to their correct labels*/
     void CreateCalendar()
     {
+        Today.SetActive(false);
         curDisplay = iMonth;
         int startDay = (int) curDisplay.DayOfWeek;
         curDisplay = curDisplay.AddDays(-startDay);
@@ -32,7 +34,16 @@ public class Calendar : MonoBehaviour
             if (curDisplay.Month != iMonth.Month)
                 child.GetComponent<Text>().color = inactive;
             else
+            {
                 child.GetComponent<Text>().color = active;
+                if (curDisplay.Month == DateTime.Now.Month && curDisplay.Day == DateTime.Now.Day && curDisplay.Year == DateTime.Now.Year)
+                {
+                    Today.transform.position = child.position;
+                    child.GetComponent<Text>().color = Color.white;
+                    Today.SetActive(true);
+                }
+            }
+
             child.GetComponent<Text>().text = curDisplay.Day.ToString();
             curDisplay = curDisplay.AddDays(1);
         }

@@ -178,6 +178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pv: {fileID: 0}
   controlPanelManagement: {fileID: 0}
+  Xray_chest: {fileID: 0}
+  Xray_Plv: {fileID: 0}
+  Bloody_result: {fileID: 0}
 --- !u!114 &7755427901114280657
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,13 +10,20 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public PhotonView pv;
     public ControlPanelManagement controlPanelManagement;
 
-    private bool _lightState;
     private string Vitalname;
     private string Vitalnumber;
     private GameObject vitalmonitor;
 
     private GameObject changeables;
     private Animator patient;
+
+    public GameObject Xray_chest;
+    public GameObject Xray_Plv;
+    public GameObject Bloody_result;
+
+    private bool Chest_Xray_scale;
+    private bool Plv_Xray_scale;
+    private bool Bloody_Result_scale;
 
 
 
@@ -31,6 +38,36 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
 
         changeables = GameObject.Find("TraumaBay/Changeables");
         patient = GameObject.Find("Characters/mannequin").GetComponent<Animator>();
+
+        Xray_chest = changeables.transform.Find("X-rayImage/XRay_Chest_Scale").gameObject;
+        Xray_Plv = changeables.transform.Find("X-rayImage/XRay_Pelvis_Scale").gameObject;
+        Bloody_result = changeables.transform.Find("Bloodwork/Bloodwork_Scale").gameObject;
+
+        Chest_Xray_scale = Xray_chest.activeSelf;
+        Plv_Xray_scale = Xray_Plv.activeSelf;
+        Bloody_Result_scale = Bloody_result.activeSelf;
+
+    }
+
+    void Update()
+    {
+        if (Chest_Xray_scale != Xray_chest.activeSelf)
+        {
+            Chest_Xray_scale = Xray_chest.activeSelf;
+            pv.RPC("RPC_ScaleObj", RpcTarget.All, "X-rayImage/" + Xray_chest.name, Chest_Xray_scale);
+        }
+
+        if (Plv_Xray_scale != Xray_Plv.activeSelf)
+        {
+            Plv_Xray_scale = Xray_Plv.activeSelf;
+            pv.RPC("RPC_ScaleObj", RpcTarget.All, "X-rayImage/" + Xray_Plv.name, Plv_Xray_scale);
+        }
+
+        if (Bloody_Result_scale != Bloody_result.activeSelf)
+        {
+            Bloody_Result_scale = Bloody_result.activeSelf;
+            pv.RPC("RPC_ScaleObj", RpcTarget.All, "Bloodwork/" + Bloody_result.name, Bloody_Result_scale);
+        }
     }
 
     [PunRPC]
@@ -49,16 +86,14 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void RPC_ObjSync(string obj, Vector3 pos, Quaternion rot)
-    {
-        Transform go = changeables.transform.Find(obj);
-        go.position = pos;
-        go.rotation = rot;
-    }
-
-    [PunRPC]
     public void RPC_talking(bool talking)
     {
         patient.SetBool("isSpeaking", talking);
+    }
+
+    [PunRPC]
+    public void RPC_ScaleObj(string obj, bool scale)
+    {
+        changeables.transform.Find(obj).gameObject.SetActive(scale);
     }
 }

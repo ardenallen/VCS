@@ -66,16 +66,14 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void RPC_ObjSync(string obj, Vector3 pos, Quaternion rot)
-    {
-        Transform go = changeables.transform.Find(obj);
-        go.position = pos;
-        go.rotation = rot;
-    }
-
-    [PunRPC]
     public void RPC_talking(bool talking)
     {
         patient.SetBool("isSpeaking", talking);
+    }
+
+    [PunRPC]
+    public void RPC_ScaleObj(string obj, bool scale)
+    {
+        changeables.transform.Find(obj).gameObject.SetActive(scale);
     }
 }

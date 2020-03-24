@@ -7700,8 +7700,9 @@ GameObject:
   - component: {fileID: 370352186}
   - component: {fileID: 370352185}
   - component: {fileID: 370352184}
+  - component: {fileID: 370352187}
   m_Layer: 5
-  m_Name: Logout
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7770,7 +7771,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 370352185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 370352187}
+        m_MethodName: exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &370352185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7807,6 +7819,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370352182}
   m_CullTransparentMesh: 0
+--- !u!114 &370352187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370352182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b249e9e883a6544836b7c80516dcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &371596328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9152,7 +9176,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 66ae7c4d23a20634cb62d49a233504a2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 66ae7c4d23a20634cb62d49a233504a2,
         type: 3}
@@ -48851,6 +48875,11 @@ PrefabInstance:
       propertyPath: primaryRecorder
       value: 
       objectReference: {fileID: 272906556}
+    - target: {fileID: 8857438114360605854, guid: 6fa4d1c3d78bc4945822250784e7ca86,
+        type: 3}
+      propertyPath: ApplyDontDestroyOnLoad
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8857438114360605855, guid: 6fa4d1c3d78bc4945822250784e7ca86,
         type: 3}
       propertyPath: unityMicrophoneDevice

@@ -50,7 +50,7 @@ MonoBehaviour:
   voiceDetection: 0
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
-  unityMicrophoneDevice: "\u9EA6\u514B\u98CE (Realtek(R) Audio)"
+  unityMicrophoneDevice: 
   photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
@@ -83,6 +83,7 @@ MonoBehaviour:
   logLevel: 1
   enableSupportLogger: 0
   updateInterval: 50
+  runInBackground: 1
   statsResetInterval: 1000
   speakerPrefab: {fileID: 0}
   primaryRecorder: {fileID: 0}
@@ -101,7 +102,7 @@ MonoBehaviour:
   ShowSettings: 0
   MinimalTimeScaleToDispatchInFixedUpdate: -1
   AutoConnectAndJoin: 1
-  AutoLeaveAndDisconnect: 1
+  AutoLeaveAndDisconnect: 0
   AutoCreateSpeakerIfNotFound: 1
   usePunAppSettings: 1
 --- !u!114 &8857438114360605853
@@ -121,6 +122,7 @@ MonoBehaviour:
   logLevel: 1
   enableSupportLogger: 0
   updateInterval: 50
+  runInBackground: 1
   statsResetInterval: 1000
   speakerPrefab: {fileID: 0}
   primaryRecorder: {fileID: 8857438114360605855}

@@ -15,10 +15,18 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
-        PhotonNetwork.AutomaticallySyncScene = true;
-        Login.SetActive(true);
-        Dashboard.SetActive(false);
+        
+        if (PhotonNetwork.NickName == "")
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.AutomaticallySyncScene = true;
+            Login.SetActive(true);
+            Dashboard.SetActive(false);
+        } else
+        {
+            Dashboard.SetActive(true);
+            Destroy(GameObject.Find("Voice"));
+        }
     }
 
     public override void OnConnectedToMaster()

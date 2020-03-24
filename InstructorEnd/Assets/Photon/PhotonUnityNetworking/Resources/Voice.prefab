@@ -50,7 +50,7 @@ MonoBehaviour:
   voiceDetection: 0
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
-  unityMicrophoneDevice: 
+  unityMicrophoneDevice: Microphone (Realtek(R) Audio)
   photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   runInBackground: 1
   statsResetInterval: 1000
   speakerPrefab: {fileID: 0}
-  primaryRecorder: {fileID: 0}
+  primaryRecorder: {fileID: 8857438114360605855}
   Settings:
     AppIdRealtime: 
     AppIdChat: 
@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logLevel: 1
-  boostValue: 0
-  amplificationFactor: 1
+  boostValue: 1
+  amplificationFactor: 7

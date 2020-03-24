@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6406991284320023946}
   - component: {fileID: 111734869}
   - component: {fileID: 111734870}
-  - component: {fileID: 111734873}
   m_Layer: 9
   m_Name: XRay_Pelvis
   m_TagString: Untagged
@@ -168,20 +167,6 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &111734873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6406991284320023945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 941511f4c0529a646a44ef9f6154dd07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaledPanel: {fileID: 5506550261412682248, guid: 7046aceeb8a32c4489e10de070c7a22e,
-    type: 3}
 --- !u!1 &6406991284475489805
 GameObject:
   m_ObjectHideFlags: 0

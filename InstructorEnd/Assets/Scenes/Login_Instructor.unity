@@ -2108,7 +2108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &645304821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3898,8 +3898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 1054103892}
   roomNumber: {fileID: 1432535645}
-  Login: {fileID: 0}
-  Dashboard: {fileID: 0}
+  Login: {fileID: 1963045303}
+  Dashboard: {fileID: 645304820}
 --- !u!4 &1171853197
 Transform:
   m_ObjectHideFlags: 0
@@ -7685,7 +7685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeaderLabel: {fileID: 1586129210}
-  Labels: {fileID: 0}
+  Labels: {fileID: 998504048}
 --- !u!1 &1938285484
 GameObject:
   m_ObjectHideFlags: 0

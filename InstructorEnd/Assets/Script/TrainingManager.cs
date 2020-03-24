@@ -9,7 +9,7 @@ public class TrainingManager : MonoBehaviourPun
     void Start()
     {
 
-        if (PhotonNetwork.NickName == "Student1")
+        if (PhotonNetwork.NickName == "stu1")
         {
             PhotonNetwork.Instantiate("NetworkPlayer", new Vector3(-4, 1, 0), Quaternion.identity, 0);
         }

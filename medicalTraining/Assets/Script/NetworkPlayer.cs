@@ -49,6 +49,9 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
             StethoscopeOnHand = playerGlobal.Find("OVRCameraRig/TrackingSpace/RightHandAnchor/RightControllerAnchor/Stethoscope").transform.gameObject;
             isOnHand = StethoscopeOnHand.activeSelf;
             StethoscopeTrigger = GameObject.Find("stethoscope").gameObject;
+
+            LeftHand.SetActive(false);
+            RightHand.SetActive(false);
         }
 
     }

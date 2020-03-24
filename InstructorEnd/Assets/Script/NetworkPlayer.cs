@@ -26,7 +26,7 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
     void Start()
     {
         StethoscopeTrigger = GameObject.Find("stethoscope").gameObject;
-        userName.text = PhotonNetwork.NickName;
+       // userName.text = PhotonNetwork.NickName;
     }
 
     // Update is called once per frame

@@ -91,7 +91,10 @@ GameObject:
   - component: {fileID: 7808276291676825410}
   - component: {fileID: 7808276291676825413}
   - component: {fileID: 7808276291676825423}
+  - component: {fileID: 560783403}
   - component: {fileID: 560783404}
+  - component: {fileID: 560783405}
+  - component: {fileID: 560783406}
   m_Layer: 9
   m_Name: Bloodwork
   m_TagString: Untagged
@@ -189,6 +192,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &560783403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808276291676825422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941511f4c0529a646a44ef9f6154dd07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaledPanel: {fileID: 8240974489693234525, guid: 854d9c00c2320a64794b011eb165f328,
+    type: 3}
 --- !u!114 &560783404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +223,40 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &560783405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808276291676825422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+--- !u!114 &560783406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808276291676825422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 560783405}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

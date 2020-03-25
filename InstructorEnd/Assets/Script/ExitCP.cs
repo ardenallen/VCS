@@ -9,12 +9,13 @@ public class ExitCP : MonoBehaviourPunCallbacks
 {
     public void exit()
     {
+        PhotonNetwork.LoadLevel(0);
         PhotonNetwork.LeaveRoom();
         GameObject.Find("Voice").GetComponent<PhotonVoiceNetwork>().Disconnect();
     }
 
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel(0);
-    }
+    //public override void OnLeftRoom()
+    //{
+    //    Debug.Log("LEFT ROOM");
+    //}
 }

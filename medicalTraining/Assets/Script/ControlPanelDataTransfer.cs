@@ -25,8 +25,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private bool Plv_Xray_scale;
     private bool Bloody_Result_scale;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -95,5 +93,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public void RPC_ScaleObj(string obj, bool scale)
     {
         changeables.transform.Find(obj).gameObject.SetActive(scale);
+    }
+
+    [PunRPC]
+    public void RPC_Volume(float vol)
+    {
+        GameObject.Find("Instructor(Clone)").GetComponent<AudioSource>().volume = vol;
     }
 }

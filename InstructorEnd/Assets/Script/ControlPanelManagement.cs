@@ -35,7 +35,10 @@ public class ControlPanelManagement : MonoBehaviour
     public bool objvis;
     private Color col = new Color(1.0f, 1.0f, 1.0f, 0.3529412f);
     private string oldNumber;
- 
+
+    public float volume;
+    public bool volume_changed;
+    public Slider vol;
 
     // Start is called before the first frame update
     void Start()
@@ -129,6 +132,12 @@ public class ControlPanelManagement : MonoBehaviour
     void UpdatePlaceholder(BaseEventData eventData)
     {
         oldFigure.text = oldNumber;
+    }
+
+    public void changeVolume()
+    {
+        volume_changed = true;
+        volume = vol.value;
     }
 }
 

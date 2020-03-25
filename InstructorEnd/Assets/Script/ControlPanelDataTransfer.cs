@@ -50,6 +50,11 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_talking", RpcTarget.AllBuffered, controlPanelManagement.patientButton.talking);
             controlPanelManagement.patientButton.pressed_changed = false;
         }
+        if (controlPanelManagement.volume_changed)
+        {
+            pv.RPC("RPC_Volume", RpcTarget.OthersBuffered, controlPanelManagement.volume);
+            controlPanelManagement.volume_changed = false;
+        }
     }
 
     [PunRPC]

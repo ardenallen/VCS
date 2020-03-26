@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Stethoscope : MonoBehaviour
 {
-    public GameObject StethoscopePrefab;
     public GameObject StethoscopeTrigger;
     public GameObject StethoscopeOnHand;
 
@@ -12,6 +11,8 @@ public class Stethoscope : MonoBehaviour
 
     public GameObject breathingArea;
     public GameObject centerPoint;
+
+    public bool isUse;
 
 
 
@@ -39,7 +40,7 @@ public class Stethoscope : MonoBehaviour
             {
                 StethoscopeOnHand.SetActive(true);
                 StethoscopeTrigger.SetActive(false);
-
+                isUse = true;
             }
         }
         else if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger) || OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
@@ -47,9 +48,10 @@ public class Stethoscope : MonoBehaviour
             if(StethoscopeOnHand.activeSelf == true)
             {
                 StethoscopeOnHand.SetActive(false);
-                Destroy(StethoscopeTrigger);
-                StethoscopeTrigger = Instantiate(StethoscopePrefab, rightHand.transform.position, Quaternion.identity);
+                StethoscopeTrigger.SetActive(true);
+                StethoscopeTrigger.transform.position = rightHand.transform.position;
                 StethoscopeTrigger.GetComponent<GrabDetect>().isTrigered = false;
+                isUse = false;
             }
                     
         }

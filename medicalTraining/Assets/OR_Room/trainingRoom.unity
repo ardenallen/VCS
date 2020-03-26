@@ -16173,6 +16173,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1478082242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1478082244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 78c53af4bf6562a45bbea41118456ee2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1478082242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1478082245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478082244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.025933, y: 0.92313915, z: 0.68610036}
+  m_Center: {x: 0.000000059604645, y: 0.46185103, z: -0.07044941}
 --- !u!1001 &1479346393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17503,7 +17522,6 @@ GameObject:
   - component: {fileID: 1611044297}
   - component: {fileID: 1611044298}
   - component: {fileID: 1611044299}
-  - component: {fileID: 1611044300}
   m_Layer: 0
   m_Name: TrainingManager
   m_TagString: Untagged
@@ -17661,37 +17679,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fa02ef9beddfd469b2b0f2914a697b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StethoscopePrefab: {fileID: 7414885880982012952, guid: 1f2d8da086ec44a41a7b2dd2dacd68e2,
-    type: 3}
   StethoscopeTrigger: {fileID: 8918130156577501453}
   StethoscopeOnHand: {fileID: 1549879424}
   rightHand: {fileID: 1554920485}
   breathingArea: {fileID: 651701177}
   centerPoint: {fileID: 1727887481}
---- !u!114 &1611044300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611044294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 941511f4c0529a646a44ef9f6154dd07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  results:
-  - {fileID: 426366497}
-  - {fileID: 111734867}
-  - {fileID: 560783402}
-  scaledPanel:
-  - {fileID: 6909989598519233849}
-  - {fileID: 6406991284893539771}
-  - {fileID: 731095752}
-  grabbable: []
-  scaleGrabbable: []
-  originalScale: {x: 0, y: 0, z: 0}
-  origonalPos: {x: 0, y: 0, z: 0}
+  isUse: 0
 --- !u!1 &1613143293
 GameObject:
   m_ObjectHideFlags: 0
@@ -22541,8 +22534,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1318490815}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2071689139
-MeshCollider:
+--- !u!65 &2071689136
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22551,10 +22544,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 9189b371f61b37e49b9d8c9b3c542473, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.6365893, y: 0.04078591, z: 1.501641}
+  m_Center: {x: 0.023811698, y: 0.9385868, z: -0.22417676}
 --- !u!1 &2075923526
 GameObject:
   m_ObjectHideFlags: 0

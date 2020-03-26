@@ -25,12 +25,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private bool Plv_Xray_scale;
     private bool Bloody_Result_scale;
 
-    public Stethoscope localSteControl;
-    public GameObject StethoscopeOnHand;
-    public GameObject StethoscopeTrigger;
-    public bool isOnHand;
 
-    public GameObject Stethoscope;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +33,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         pv = GetComponent<PhotonView>();
 
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
-        localSteControl = GameObject.Find("TrainingManager").GetComponent<Stethoscope>();
+
 
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
 
@@ -53,9 +48,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         Plv_Xray_scale = Xray_Plv.activeSelf;
         Bloody_Result_scale = Bloody_result.activeSelf;
 
-        StethoscopeOnHand = localSteControl.StethoscopeOnHand;
-        isOnHand = StethoscopeOnHand.activeSelf;
-        StethoscopeTrigger = localSteControl.StethoscopeTrigger;
+       
 
     }
 
@@ -79,19 +72,7 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
             pv.RPC("RPC_ScaleObj", RpcTarget.All, "Bloodwork/" + Bloody_result.name, Bloody_Result_scale);
         }
 
-        if (StethoscopeOnHand.activeSelf != isOnHand)
-        {
-            if (StethoscopeTrigger.activeSelf == false)
-            {
-                pv.RPC("RPC_StethoscopeInUse", RpcTarget.Others, isOnHand, StethoscopeTrigger.activeSelf);
-                isOnHand = StethoscopeOnHand.activeSelf;
-            }
-            else if(StethoscopeTrigger.activeSelf == true)
-            {
-                pv.RPC("RPC_StethoscopeNotUse", RpcTarget.Others, isOnHand, StethoscopeTrigger.activeSelf);
-                isOnHand = StethoscopeOnHand.activeSelf;
-            }
-        }
+       
             
             
     }
@@ -129,18 +110,5 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         GameObject.Find("Instructor(Clone)").GetComponent<AudioSource>().volume = vol;
     }
 
-    [PunRPC]
-    public void RPC_StethoscopeInUse(bool onHand, bool trigger)
-    {
-        Stethoscope.SetActive(onHand);
-        StethoscopeTrigger.SetActive(trigger);
-    }
-
-    [PunRPC]
-    public void RPC_StethoscopeNotUse(bool onHand, bool trigger, Vector3 pos)
-    {
-        Stethoscope.SetActive(onHand);
-        GameObject.Find("stethoscope").gameObject.SetActive(trigger);
-        GameObject.Find("stethoscope").transform.position = pos;
-    }
+    
 }

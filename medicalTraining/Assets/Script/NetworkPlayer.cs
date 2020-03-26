@@ -19,9 +19,14 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
     public Transform lefthandLocal;
     public Transform righthandLocal;
 
-    
-
     public Text userName;
+
+    public Stethoscope localSteControl;
+    public GameObject StethoscopeOnHand;
+    public GameObject StethoscopeTrigger;
+    public bool isOnHand;
+
+    public GameObject Stethoscope;
 
     // Start is called before the first frame update
     void Start()
@@ -42,15 +47,35 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
             transform.SetParent(playerLocal);
             transform.localPosition = Vector3.zero;
 
-           
-
             LeftHand.SetActive(false);
             RightHand.SetActive(false);
+
+            localSteControl = GameObject.Find("TrainingManager").GetComponent<Stethoscope>();
+
+            StethoscopeOnHand = localSteControl.StethoscopeOnHand;
+            isOnHand = localSteControl.isUse;
+            StethoscopeTrigger = localSteControl.StethoscopeTrigger;
         }
 
     }
 
+    void Update()
+    {
+        if (isOnHand != localSteControl.isUse)
+        {
+            if (localSteControl.isUse)
+            {
+                pv.RPC("RPC_StethoscopeInUse", RpcTarget.Others, StethoscopeTrigger.activeSelf);
+            }
+            else
+            {
+                pv.RPC("RPC_StethoscopeNotUse", RpcTarget.Others, StethoscopeTrigger.activeSelf, StethoscopeTrigger.transform.position);
+            }
 
+            isOnHand = localSteControl.isUse;
+        }
+        
+    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -91,4 +116,19 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
     {
         userName.text = name;
     }
+
+    //[PunRPC]
+    //public void RPC_StethoscopeInUse(bool onHand, bool trigger)
+    //{
+    //    Stethoscope.SetActive(onHand);
+    //    StethoscopeTrigger.SetActive(trigger);
+    //}
+
+    //[PunRPC]
+    //public void RPC_StethoscopeNotUse(bool onHand, bool trigger, Vector3 pos)
+    //{
+    //    Stethoscope.SetActive(onHand);
+    //    GameObject.Find("stethoscope").gameObject.SetActive(trigger);
+    //    GameObject.Find("stethoscope").transform.position = pos;
+    //}
 }

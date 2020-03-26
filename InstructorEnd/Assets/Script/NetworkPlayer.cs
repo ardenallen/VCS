@@ -10,7 +10,7 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
     public GameObject avatar;
     public GameObject LeftHand;
     public GameObject RightHand;
-
+    
     public Transform playerGlobal;
     public Transform playerLocal;
 
@@ -19,10 +19,15 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
 
     public Text userName;
 
+    public GameObject StethoscopeTrigger;
+    public GameObject StethoscopePrefab;
+
+    private GameObject go;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        StethoscopeTrigger = GameObject.Find("stethoscope").gameObject;
     }
 
     // Update is called once per frame
@@ -68,5 +73,20 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
     public void RPC_Name(string name)
     {
         userName.text = name;
+    }
+
+    [PunRPC]
+    public void RPC_StethoscopeInUse(bool trigger)
+    {
+        go = Instantiate(StethoscopePrefab, transform.Find("Righthand"));
+        StethoscopeTrigger.SetActive(trigger);
+    }
+
+    [PunRPC]
+    public void RPC_StethoscopeNotUse(bool trigger, Vector3 pos)
+    {
+        Destroy(go);
+        StethoscopeTrigger.SetActive(trigger);
+        StethoscopeTrigger.transform.position = pos;
     }
 }

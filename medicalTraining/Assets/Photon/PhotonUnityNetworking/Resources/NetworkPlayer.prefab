@@ -186,11 +186,12 @@ MonoBehaviour:
   playerLocal: {fileID: 0}
   lefthandLocal: {fileID: 0}
   righthandLocal: {fileID: 0}
+  userName: {fileID: 3451758376584776637}
+  localSteControl: {fileID: 0}
   StethoscopeOnHand: {fileID: 0}
   StethoscopeTrigger: {fileID: 0}
   isOnHand: 0
   Stethoscope: {fileID: 3965048446333966816}
-  userName: {fileID: 3451758376584776637}
 --- !u!114 &1864149083
 MonoBehaviour:
   m_ObjectHideFlags: 0

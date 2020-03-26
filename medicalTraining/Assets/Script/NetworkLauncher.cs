@@ -6,6 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
+namespace TalesFromTheRift {
 public class NetworkLauncher : MonoBehaviourPunCallback
 {
     public GameObject welcomeScreen;
@@ -27,11 +28,15 @@ public class NetworkLauncher : MonoBehaviourPunCallback
 
     private string code;
 
+    private GameObject keyboard;
+
     // Start is called before the first frame update
-    void Start()
+        void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.AutomaticallySyncScene = true;
+ 
+        keyboard = GameObject.Find("Keyboard");
     }
 
     void Update()
@@ -49,6 +54,25 @@ public class NetworkLauncher : MonoBehaviourPunCallback
             Invoke("ShowStart", (float)ins.clip.length);
         }
 
+        if (usernameScreen.activeSelf)
+        {
+                GameObject iF = usernameScreen.transform.Find("InputField").gameObject;
+                iF.GetComponent<InputField>().ActivateInputField();
+                keyboard.GetComponent<OpenCanvasKeyboard>().inputObject = iF;
+        }
+
+            if (passcodeScreen.activeSelf)
+            {
+                GameObject iF = passcodeScreen.transform.Find("InputField").gameObject;
+                iF.GetComponent<InputField>().ActivateInputField();
+                keyboard.GetComponent<OpenCanvasKeyboard>().inputObject = iF;
+
+            }
+
+            if (roleScreen.activeSelf)
+            {
+                CanvasKeyboard.Close();
+            }
     }
 
     public override void OnConnectedToMaster()
@@ -73,12 +97,6 @@ public class NetworkLauncher : MonoBehaviourPunCallback
 
     public void CodeButton()
     {
-        //string[] strg = new string[roomNumber.Length];
-        //for (int i = 0; i < roomNumber.Length; i++)
-        //{
-        //    strg[i] = roomNumber[i].text;            
-        //}
-        //code = string.Concat(strg);
         if (roomNumber.text.Length >= 3)
         {
             code = roomNumber.text;
@@ -116,8 +134,7 @@ public class NetworkLauncher : MonoBehaviourPunCallback
 
         RoomOptions options = new RoomOptions { MaxPlayers = 3 };
         PhotonNetwork.JoinOrCreateRoom(code, options, default);
-        //PhotonNetwork.LoadLevel(1);
-        //StartCoroutine(LoadLevelAsync());
+
     }
     public void StartTrainingButton()
     {
@@ -125,23 +142,18 @@ public class NetworkLauncher : MonoBehaviourPunCallback
 
         RoomOptions options = new RoomOptions { MaxPlayers = 3 };
         PhotonNetwork.JoinOrCreateRoom(code, options, default);
-        //PhotonNetwork.LoadLevel(1);
-        //StartCoroutine(LoadLevelAsync());
+        
     }
 
-    IEnumerator LoadLevelAsync()
-    {
-        //PhotonNetwork.LoadLevel(1);
-        PhotonNetwork.IsMessageQueueRunning = false;
-       // AsyncOperation async = PhotonNetwork.LoadLevelAsync;
-        while (PhotonNetwork.LevelLoadingProgress < 1)
+        IEnumerator LoadLevelAsync()
         {
-            progressPercentage.text = "Loading..." + (int)(PhotonNetwork.LevelLoadingProgress * 100) + "%";
-            //loadAmount = async.progress;
-            progressBar.value = PhotonNetwork.LevelLoadingProgress;
-            yield return new WaitForEndOfFrame();
+            while (PhotonNetwork.LevelLoadingProgress < 1)
+            {
+                progressPercentage.text = "Loading..." + (int)(PhotonNetwork.LevelLoadingProgress * 100) + "%";
+                progressBar.value = PhotonNetwork.LevelLoadingProgress;
+                yield return new WaitForEndOfFrame();
+            }
         }
-    }
 
     public void ShowStart()
     {
@@ -152,6 +164,7 @@ public class NetworkLauncher : MonoBehaviourPunCallback
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel(1);
+        StartCoroutine(LoadLevelAsync());
     }
 
     public void BackToName()
@@ -175,6 +188,9 @@ public class NetworkLauncher : MonoBehaviourPunCallback
     public void ReplayVideo()
     {
         instructionScreen.SetActive(true);
+        ins.Play();
         startScreen.SetActive(false);
+
     }
+}
 }

@@ -47,5 +47,6 @@ MonoBehaviour:
   - RPC_StethoscopeInUse
   - RPC_StethoscopeNotUse
   - RPC_Name
+  - RPC_Volume
   DisableAutoOpenWizard: 1
   ShowSettings: 1

@@ -19,11 +19,7 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
     public Transform lefthandLocal;
     public Transform righthandLocal;
 
-    public GameObject StethoscopeOnHand;
-    public GameObject StethoscopeTrigger;
-    public bool isOnHand;
-
-    public GameObject Stethoscope;
+    
 
     public Text userName;
 
@@ -46,28 +42,15 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
             transform.SetParent(playerLocal);
             transform.localPosition = Vector3.zero;
 
-            StethoscopeOnHand = playerGlobal.Find("OVRCameraRig/TrackingSpace/RightHandAnchor/RightControllerAnchor/Stethoscope").transform.gameObject;
-            isOnHand = StethoscopeOnHand.activeSelf;
-            StethoscopeTrigger = GameObject.Find("stethoscope").gameObject;
+           
+
+            LeftHand.SetActive(false);
+            RightHand.SetActive(false);
         }
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (StethoscopeOnHand.activeSelf !=isOnHand && StethoscopeTrigger.activeSelf == false)
-        {
-            isOnHand = StethoscopeOnHand.activeSelf;
-            pv.RPC("RPC_StethoscopeInUse", RpcTarget.Others, isOnHand, StethoscopeTrigger.activeSelf);           
-        }
 
-        if(StethoscopeOnHand.activeSelf != isOnHand)
-        {
-            isOnHand = StethoscopeOnHand.activeSelf;
-            pv.RPC("RPC_StethoscopeNotUse", RpcTarget.Others, isOnHand, StethoscopeTrigger.activeSelf, StethoscopeTrigger.transform.position);
-        }
-    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -101,20 +84,7 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
         }
     }
 
-    [PunRPC]
-    public void RPC_StethoscopeInUse(bool onHand, bool trigger)
-    {
-        Stethoscope.SetActive(onHand);
-        StethoscopeTrigger.SetActive(trigger);
-    }
 
-    [PunRPC]
-    public void RPC_StethoscopeNotUse(bool onHand, bool trigger, Vector3 pos)
-    {
-        Stethoscope.SetActive(onHand);
-        GameObject.Find("stethoscope").gameObject.SetActive(trigger);
-        GameObject.Find("stethoscope").transform.position = pos;
-    }
 
     [PunRPC]
     public void RPC_Name(string name)

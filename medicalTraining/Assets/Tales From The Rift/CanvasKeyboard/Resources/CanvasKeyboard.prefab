@@ -2237,6 +2237,7 @@ GameObject:
   - component: {fileID: 22298286}
   - component: {fileID: 11411460}
   - component: {fileID: 11431264}
+  - component: {fileID: 849445673610130643}
   m_Layer: 5
   m_Name: CanvasKeyboard
   m_TagString: Untagged
@@ -2313,6 +2314,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputObject: {fileID: 0}
+--- !u!95 &849445673610130643
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107484}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10d7c8b984aa3524bae9deefedaac385, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &107994
 GameObject:
   m_ObjectHideFlags: 0

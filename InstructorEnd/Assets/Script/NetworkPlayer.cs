@@ -17,16 +17,12 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
     public Transform lefthandLocal;
     public Transform righthandLocal;
 
-    public GameObject StethoscopeTrigger;
-    public GameObject Stethoscope;
-
     public Text userName;
 
     // Start is called before the first frame update
     void Start()
     {
-        StethoscopeTrigger = GameObject.Find("stethoscope").gameObject;
-        userName.text = PhotonNetwork.NickName;
+
     }
 
     // Update is called once per frame
@@ -67,20 +63,6 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
         }
     }
 
-    [PunRPC]
-    public void RPC_StethoscopeInUse(bool onHand, bool trigger)
-    {
-        Stethoscope.SetActive(onHand);
-        StethoscopeTrigger.SetActive(trigger);
-    }
-
-    [PunRPC]
-    public void RPC_StethoscopeNotUse(bool onHand, bool trigger, Vector3 pos)
-    {
-        Stethoscope.SetActive(onHand);
-        StethoscopeTrigger.SetActive(trigger);
-        GameObject.Find("stethoscope").transform.position = pos;
-    }
 
     [PunRPC]
     public void RPC_Name(string name)

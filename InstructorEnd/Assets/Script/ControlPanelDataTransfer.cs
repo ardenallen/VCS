@@ -17,6 +17,9 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     private GameObject changeables;
     private Animator patient;
 
+    public GameObject StethoscopeTrigger;
+    public GameObject Stethoscope;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,8 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
         changeables = GameObject.Find("TraumaBay/Changeables");
         patient = GameObject.Find("Characters/mannequin").GetComponent<Animator>();
+
+        StethoscopeTrigger = GameObject.Find("stethoscope").gameObject;
     }
 
     // Update is called once per frame
@@ -81,4 +86,20 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     {
         changeables.transform.Find(obj).gameObject.SetActive(scale);
     }
+
+    [PunRPC]
+    public void RPC_StethoscopeInUse(bool onHand, bool trigger)
+    {
+        Stethoscope.SetActive(onHand);
+        StethoscopeTrigger.SetActive(trigger);
+    }
+
+    [PunRPC]
+    public void RPC_StethoscopeNotUse(bool onHand, bool trigger, Vector3 pos)
+    {
+        Stethoscope.SetActive(onHand);
+        StethoscopeTrigger.SetActive(trigger);
+        GameObject.Find("stethoscope").transform.position = pos;
+    }
+
 }

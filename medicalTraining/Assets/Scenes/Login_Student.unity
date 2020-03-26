@@ -3849,7 +3849,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 315950411}
   playerName: {fileID: 939752409}
   roomNumber: {fileID: 948052065}
-  charactor: 
+  character: {fileID: 1508939844}
   progressBar: {fileID: 502706070}
   progressPercentage: {fileID: 125634687}
   ins: {fileID: 846977054}
@@ -4271,6 +4271,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392353228}
   m_CullTransparentMesh: 0
+--- !u!1 &1508939842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508939843}
+  - component: {fileID: 1508939844}
+  m_Layer: 0
+  m_Name: CharacterInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508939843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508939842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8569, y: 0.5596956, z: -0.7807197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508939844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508939842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71ee2f6cb5184a43ab1de60b2538711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: 
 --- !u!1 &1516739980
 GameObject:
   m_ObjectHideFlags: 0

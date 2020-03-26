@@ -118,12 +118,11 @@ GameObject:
   - component: {fileID: 4147228728795453967}
   - component: {fileID: 4147228728795453966}
   - component: {fileID: 4147228728795453969}
-  - component: {fileID: 1864149083}
   - component: {fileID: 4470748376184202907}
   - component: {fileID: 9140275973615317885}
   m_Layer: 0
-  m_Name: NetworkPlayer
-  m_TagString: Untagged
+  m_Name: Doctor
+  m_TagString: Trainee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,21 +191,6 @@ MonoBehaviour:
   StethoscopeTrigger: {fileID: 0}
   isOnHand: 0
   Stethoscope: {fileID: 3965048446333966816}
---- !u!114 &1864149083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4147228728795453968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &4470748376184202907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 5246324365488357226}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 5128422482851229455}
   - {fileID: 2594647414944693829}
@@ -301,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 7158016459209370622}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children:
   - {fileID: 4383276953558730512}
   m_Father: {fileID: 4147228728795453967}
@@ -332,7 +316,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6437438610863701443, guid: 592abb229a38d964ca8e755ea20a1acb, type: 3}
+  - {fileID: 2100000, guid: e0e03ca416f0cda44a51955dee8a3b79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 8143005930953317777}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 5392608151880795549}
   m_Father: {fileID: 4147228728795453967}
@@ -546,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e03ca416f0cda44a51955dee8a3b79, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0c255d07fd68f14b94e55d388e7e6bb, type: 3}
@@ -618,6 +606,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e03ca416f0cda44a51955dee8a3b79, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}

@@ -19,7 +19,8 @@ public class NetworkLauncher : MonoBehaviourPunCallback
 
     public Text playerName;
     public Text roomNumber;
-    public string charactor;
+    
+    public CharacterInfo character;
 
     public Slider progressBar;
     public Text progressPercentage;
@@ -115,10 +116,10 @@ public class NetworkLauncher : MonoBehaviourPunCallback
                 switch (t.name)
                 {
                     case "LeadDoctor":
-                        charactor = "LeadDoctor";
+                        character.character = "LeadDoctor";
                         break;
                     case "Doctor":
-                        charactor = "Doctor";
+                        character.character = "Doctor";
                         break;
                 }
             break;

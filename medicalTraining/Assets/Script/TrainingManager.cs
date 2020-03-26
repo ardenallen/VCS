@@ -5,14 +5,15 @@ using Photon.Pun;
 
 public class TrainingManager : MonoBehaviourPun
 {
+    public GameObject characterType;
     void Start()
     {
-        if (PhotonNetwork.NickName == "stu1")
-        {
-            PhotonNetwork.Instantiate("NetworkPlayer", new Vector3(-4, 1, 0), Quaternion.identity, 0);
-        }
-        else
-            PhotonNetwork.Instantiate("Instructor", new Vector3(0, 0, 0), Quaternion.identity, 0);
+        characterType = GameObject.Find("CharacterInfo");
+
+        PhotonNetwork.Instantiate(characterType.GetComponent<CharacterInfo>().character, new Vector3(-4, 1, 0), Quaternion.identity, 0);
+
+        Destroy(characterType);
+
     }
 
     void Update()

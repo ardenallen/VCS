@@ -33,7 +33,7 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
     // Update is called once per frame
     void Update()
     {
-        userName.gameObject.transform.LookAt(GameObject.Find("InstructorCamera/Camera").transform.position);
+
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -46,10 +46,10 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
             //stream.SendNext(playerLocal.rotation);
 
             stream.SendNext(playerGlobal.TransformPoint(lefthandLocal.position));
-            stream.SendNext(lefthandLocal.localRotation);
+            stream.SendNext(lefthandLocal.rotation);
 
             stream.SendNext(playerGlobal.TransformPoint(righthandLocal.position));
-            stream.SendNext(righthandLocal.localRotation);
+            stream.SendNext(righthandLocal.rotation);
         }
         else
         {
@@ -59,10 +59,10 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
             //avatar.transform.localRotation = (Quaternion)stream.ReceiveNext();
 
             LeftHand.transform.position = LeftHand.transform.parent.InverseTransformPoint((Vector3)stream.ReceiveNext());
-            LeftHand.transform.localRotation = (Quaternion)stream.ReceiveNext();
+            LeftHand.transform.rotation = (Quaternion)stream.ReceiveNext();
 
             RightHand.transform.position = RightHand.transform.parent.InverseTransformPoint((Vector3)stream.ReceiveNext());
-            RightHand.transform.localRotation = (Quaternion)stream.ReceiveNext();
+            RightHand.transform.rotation = (Quaternion)stream.ReceiveNext();
 
 
         }

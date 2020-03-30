@@ -33,7 +33,7 @@ public class NetworkPlayer : MonoBehaviourPun, IPunObservable
     // Update is called once per frame
     void Update()
     {
-
+        userName.gameObject.transform.LookAt(GameObject.Find("InstructorCamera/Camera").transform);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

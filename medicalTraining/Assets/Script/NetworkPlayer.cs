@@ -1,29 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/************************************************************************************
+Filename    :   NetworkPlayer.cs
+Content     :   Synchronize self position and rotatio, hands position and rotation, stethscope status to other users
+************************************************************************************/
+
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine.UI;
 
 public class NetworkPlayer : MonoBehaviourPun,IPunObservable
 {
     private PhotonView pv;
 
-    public GameObject avatar;
     public GameObject LeftHand;
     public GameObject RightHand;
    
     public Transform playerGlobal;
     public Transform playerLocal;
 
-    public Transform lefthandLocal;
-    public Transform righthandLocal;
+    public Transform lefthandLocal; //left hand in the scene
+    public Transform righthandLocal; //right hand in the scene
 
     public Text userName;
 
     public Stethoscope localSteControl;
-    public GameObject StethoscopeOnHand;
-    public GameObject StethoscopeTrigger;
+    public GameObject StethoscopeOnHand; //local stethoscope on player's hand
+    public GameObject StethoscopeTrigger; //local stethoscope on crashcart
     public bool isOnHand;
 
     public GameObject Stethoscope;
@@ -61,7 +62,7 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
 
     void Update()
     {
-        if (isOnHand != localSteControl.isUse)
+        if (isOnHand != localSteControl.isUse) //judge stethoscope is being used or not
         {
             if (localSteControl.isUse)
             {
@@ -77,14 +78,12 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
         
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) //send and receive self position and rotation
     {
         if (stream.IsWriting)
         {
             stream.SendNext(playerGlobal.position);
             stream.SendNext(playerGlobal.rotation);
-            //stream.SendNext(playerLocal.position);
-            //stream.SendNext(playerLocal.rotation);
 
             stream.SendNext(playerGlobal.TransformPoint(lefthandLocal.position));
             stream.SendNext(lefthandLocal.rotation);
@@ -96,39 +95,21 @@ public class NetworkPlayer : MonoBehaviourPun,IPunObservable
         {
             transform.position = (Vector3)stream.ReceiveNext();
             transform.rotation = (Quaternion)stream.ReceiveNext();
-            //avatar.transform.localPosition = (Vector3)stream.ReceiveNext();
-            //avatar.transform.localRotation = (Quaternion)stream.ReceiveNext();
 
             LeftHand.transform.position = LeftHand.transform.parent.InverseTransformPoint((Vector3)stream.ReceiveNext());
             LeftHand.transform.rotation = (Quaternion)stream.ReceiveNext();
 
             RightHand.transform.position = RightHand.transform.parent.InverseTransformPoint((Vector3)stream.ReceiveNext());
             RightHand.transform.rotation = (Quaternion)stream.ReceiveNext();
-
-
         }
     }
 
 
 
     [PunRPC]
-    public void RPC_Name(string name)
+    public void RPC_Name(string name) //transfer own name to other users
     {
         userName.text = name;
     }
 
-    //[PunRPC]
-    //public void RPC_StethoscopeInUse(bool onHand, bool trigger)
-    //{
-    //    Stethoscope.SetActive(onHand);
-    //    StethoscopeTrigger.SetActive(trigger);
-    //}
-
-    //[PunRPC]
-    //public void RPC_StethoscopeNotUse(bool onHand, bool trigger, Vector3 pos)
-    //{
-    //    Stethoscope.SetActive(onHand);
-    //    GameObject.Find("stethoscope").gameObject.SetActive(trigger);
-    //    GameObject.Find("stethoscope").transform.position = pos;
-    //}
 }

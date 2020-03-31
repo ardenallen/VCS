@@ -1,17 +1,19 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   ControlPanelDataTransfer.cs
+Content     :   Transfer and receive data from other users
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-using UnityEngine.Video;
 
 public class ControlPanelDataTransfer : MonoBehaviourPun
 {
     public PhotonView pv;
     public ControlPanelManagement controlPanelManagement;
 
-    private string Vitalname;
-    private string Vitalnumber;
     private GameObject vitalmonitor;
 
     private GameObject changeables;
@@ -21,7 +23,8 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
     public GameObject Xray_Plv;
     public GameObject Bloody_result;
 
-    private bool Chest_Xray_scale;
+    //is the game object scaled
+    private bool Chest_Xray_scale; 
     private bool Plv_Xray_scale;
     private bool Bloody_Result_scale;
 
@@ -33,7 +36,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         pv = GetComponent<PhotonView>();
 
         controlPanelManagement = GameObject.Find("TrainingManager").GetComponent<ControlPanelManagement>();
-
 
         vitalmonitor = GameObject.Find("VitalPanel/Panel/RawImage");
 
@@ -47,9 +49,6 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         Chest_Xray_scale = Xray_chest.activeSelf;
         Plv_Xray_scale = Xray_Plv.activeSelf;
         Bloody_Result_scale = Bloody_result.activeSelf;
-
-       
-
     }
 
     void Update()
@@ -70,15 +69,13 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         {
             Bloody_Result_scale = Bloody_result.activeSelf;
             pv.RPC("RPC_ScaleObj", RpcTarget.All, "Bloodwork/" + Bloody_result.name, Bloody_Result_scale);
-        }
-
-       
-            
+        }        
             
     }
 
+    //For send and or receive data through other users
     [PunRPC]
-    public void RPC_VitalChange(string obj, string numbers)
+    public void RPC_VitalChange(string obj, string numbers) //Change vital numbers
     {
         if (vitalmonitor)
         {
@@ -86,26 +83,26 @@ public class ControlPanelDataTransfer : MonoBehaviourPun
         }
     }
     [PunRPC]
-    public void RPC_ToggleVis(string obj, bool val)
+    public void RPC_ToggleVis(string obj, bool val) //Active tools
     {
         GameObject o = changeables.transform.Find(obj).gameObject;
         o.SetActive(val);
     }
 
     [PunRPC]
-    public void RPC_talking(bool talking)
+    public void RPC_talking(bool talking) //Active patient talking animation
     {
         patient.SetBool("isSpeaking", talking);
     }
 
     [PunRPC]
-    public void RPC_ScaleObj(string obj, bool scale)
+    public void RPC_ScaleObj(string obj, bool scale) //Active scaled objects
     {
         changeables.transform.Find(obj).gameObject.SetActive(scale);
     }
 
     [PunRPC]
-    public void RPC_Volume(float vol)
+    public void RPC_Volume(float vol) //Adujust chatting volume
     {
         GameObject.Find("Instructor(Clone)").GetComponent<AudioSource>().volume = vol;
     }

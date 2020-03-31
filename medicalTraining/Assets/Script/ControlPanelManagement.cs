@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   ControlPanelManagement.cs
+Content     :   Save animations and organize tools
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
@@ -17,9 +22,9 @@ public class ControlPanelManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        videoPlayer.clip = hr76;
+        videoPlayer.clip = hr76; //active animation
 
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < items.Length; i++) //Hide tools
         {
             items[i].SetActive(false);
         }
@@ -29,7 +34,7 @@ public class ControlPanelManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (senario.activeSelf == true)
+        if (senario.activeSelf == true) //close senatio description panel
         {
             if (OVRInput.GetDown(OVRInput.Button.Any))
             {

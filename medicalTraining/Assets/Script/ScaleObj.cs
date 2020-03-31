@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   ScaleObj.cs
+Content     :   Turn off the object and active the scaled object
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

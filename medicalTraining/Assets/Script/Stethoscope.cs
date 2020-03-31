@@ -1,27 +1,23 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   Stethscope.cs
+Content     :   Control the stethoscope in hand and on crashcart
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Stethoscope : MonoBehaviour
 {
-    public GameObject StethoscopeTrigger;
-    public GameObject StethoscopeOnHand;
+    public GameObject StethoscopeTrigger; //Stethoscope on crashcart
+    public GameObject StethoscopeOnHand; //Stethscope in hand
 
     public GameObject rightHand;
 
-    public GameObject breathingArea;
-    public GameObject centerPoint;
+    public GameObject breathingArea; //area for triggering breathing sound
+    public GameObject centerPoint; //the standard position fo the chest
 
     public bool isUse;
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -32,7 +28,7 @@ public class Stethoscope : MonoBehaviour
 
     }
 
-    void GrabStethoscope()
+    void GrabStethoscope() //Grab and release Stethscope
     {
         if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
         {
@@ -54,15 +50,10 @@ public class Stethoscope : MonoBehaviour
                 isUse = false;
             }
                     
-        }
-       
-       
-      
-        
-        
-        
+        }      
     }
-    void PositionControl()
+
+    void PositionControl() //Control the positon of the stethscope when hearing the breathing sound
     {
         if (breathingArea.GetComponent<CollisionDetection>().isTriggered == true)
         {
@@ -74,9 +65,8 @@ public class Stethoscope : MonoBehaviour
             }
         }
         else
-
             StethoscopeOnHand.transform.localPosition = Vector3.zero;
     }
 
 
-}
+    }

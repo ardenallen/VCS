@@ -1,21 +1,15 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   GrabDetection.cs
+Content     :   Detect collision between right hand and stethoscope on crashcart
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GrabDetect : MonoBehaviour
 {
     public bool isTrigered;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter(Collision other)
     {

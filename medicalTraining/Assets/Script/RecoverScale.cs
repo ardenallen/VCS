@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   RecoverScale.cs
+Content     :   Turn off scaled object and active the object in original size
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

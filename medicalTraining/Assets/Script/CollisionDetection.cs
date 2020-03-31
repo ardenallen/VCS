@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/************************************************************************************
+Filename    :   CollisionDetection.cs
+Content     :   Detect the collision between breath area and stethoscope and play audio
+************************************************************************************/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +16,6 @@ public class CollisionDetection : MonoBehaviour
     void Start()
     {
         audioSource = GameObject.Find("TrainingManager").GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter(Collider other)

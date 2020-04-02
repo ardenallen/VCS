@@ -1,0 +1,69 @@
+newmtl ___Default
+illum 4
+Kd 0.59 0.63 0.95
+Ka 0.00 0.00 0.00
+Tf 0.55 0.55 0.55
+bump  -bm 0 stripes.jpg
+Ni 1.50
+Ks 0.76 0.76 0.76
+Ns 55.00
+newmtl bluemirrorsurgicallights
+illum 4
+Kd 0.51 0.64 0.88
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl lightbulbs
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl lightscontrols
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd lightscontrol.jpg
+map_Ka lightscontrol.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl screen
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd screendisplay1.jpg
+map_Ka screendisplay1.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl surgical_lights_black
+illum 4
+Kd 0.13 0.13 0.13
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.54 0.54 0.54
+Ns 30.00
+newmtl surgical_lights_white
+illum 4
+Kd 0.82 0.82 0.82
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.54 0.54 0.54
+Ns 30.00
+newmtl surgicallightsmetal
+illum 4
+Kd 0.40 0.40 0.40
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.63 0.63 0.63
+Ns 10.00

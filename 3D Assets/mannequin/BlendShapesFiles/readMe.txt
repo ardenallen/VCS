@@ -1,0 +1,1 @@
+This folder contains all the BlendShapes(animation) files of 3D human model.

@@ -1,0 +1,85 @@
+newmtl Man_Body
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Body_Colour.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks Body_Spec.jpg
+Ns 18.00
+newmtl Man_Eye
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Eye_Col.jpg
+Ni 0.00
+Ks 0.15 0.15 0.15
+Ns 170.00
+newmtl Man_Eye_Cornea
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 600.00
+newmtl Man_Eye_Lashes
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Eye_Lashes.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 400.00
+newmtl Man_Eye_Miniscus
+illum 4
+Kd 0.75 0.75 0.75
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 400.00
+newmtl Man_Eye_Pupil
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Eye_Col.jpg
+Ni 0.00
+Ks 0.15 0.15 0.15
+Ns 170.00
+newmtl Man_FingerNails
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl Man_ToeNails
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl Man_Underwear
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 400.00
+newmtl Man_Underwear_Stripe
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 400.00

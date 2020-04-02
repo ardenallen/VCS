@@ -1,0 +1,1 @@
+This folder contains the original 3D male model file and all the Maya working-in-progress files.

@@ -1,0 +1,1 @@
+This folder contains all the posed 3D models with specified 3D assets.

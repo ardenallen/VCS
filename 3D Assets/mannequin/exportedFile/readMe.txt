@@ -1,0 +1,1 @@
+This folder contains all the exported human 3D model file (FBX and OBJ) for Unity.

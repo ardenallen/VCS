@@ -123,8 +123,8 @@ Ruby Zhang - UX Designer/ Product Manager
 
 Parastou Heidari - UI Designer/ 2D Artist
 
-Emily Yao - Lead Developer @sakuya0116
+Emily Yao - Lead Developer [@sakuya0116](https://github.com/sakuya0116)
 
-Arden Allen - Developer @ardenallen
+Arden Allen - Developer [@ardenallen](https://github.com/ardenallen)
 
-Leo Chen - 3D Artist @LeoCHCH
+Leo Chen - 3D Artist [@LeoCHCH](https://github.com/LeoCHCH)

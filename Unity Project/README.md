@@ -112,11 +112,11 @@ The script is attached to NetworkManager in Scene Login_Student.
 
 
 ## Authors
-Emily Yao - Lead Developer @Sakuya0116
+Emily Yao - Lead Developer [@sakuya0116](https://github.com/sakuya0116)
 
-Arden Allen - Developer @ardenallen
+Arden Allen - Developer [@ardenallen](https://github.com/ardenallen)
 
-Leo Chen - 3D Artist @LeoCHCH
+Leo Chen - 3D Artist [@LeoCHCH](https://github.com/LeoCHCH)
 
 Meg Dimma - Project Manager
 

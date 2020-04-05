@@ -55,27 +55,38 @@ Paste the App ID to **PhotonServerSettings** in Unity and change the settings ba
 [![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
 
 ### Oculus Development
-If you want to release the application on Oculus platform or develop it on Android, please register your Oculus account and create your own application on the developer dashboard. For the details, please visit Oculus Developers.
+If you want to release the application on Oculus platform or develop it on Android, please register your Oculus account and create your own application on the developer dashboard. For the details, please visit [Oculus Developers](https://developer.oculus.com/).
 
 ### Platform
-Currently, the project is based on Windows platform, for further development, if you want to run the application without Oculus Link or move to Android platform, please check Preparing for Android Development to get details.
+Currently, the project is based on Windows platform, for further development, if you want to run the application without Oculus Link or move to Android platform, please check [Preparing for Android Development](https://developer.oculus.com/documentation/unity/unity-mobileprep/) to get details.
 
 
-##### For any questions about Photon, OVR and VR Canvas Keyboard, please visit the links below:
+#### For any questions about Photon, OVR and VR Canvas Keyboard, please visit the links below:
 
 Photon:
+
 [Photon PUN 2 Free Edition Unity Package](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
+
 [Photon Voice Unity Package](https://assetstore.unity.com/packages/tools/audio/photon-voice-45848)
+
 [Photon](https://www.photonengine.com/)
+
 [Photon PUN 2 Documentation](https://doc.photonengine.com/en-us/pun/current/getting-started/pun-intro)
+
 [Photon Voice Documentation](https://doc.photonengine.com/en-us/voice/current/getting-started/voice-intro)
+
 [Photon Server](https://doc.photonengine.com/en-us/server/current/getting-started/photon-server-intro)
 
 OVR:
+
 [Oculus Integration Unity package](https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022)
+
 [Oculus Unity Integration](https://developer.oculus.com/downloads/package/unity-integration/)
+
 [Oculus Developers Center (Oculus Quest)](https://developer.oculus.com/quest/)
+
 [Oculus Unity Development Documentation](https://developer.oculus.com/documentation/unity/book-unity-gsg/)
+
 [Oculus Unity Utilities Reference Manual 14.0](https://developer.oculus.com/reference/unity/v14/)
 
 [VR Canvas Keyboard](http://talesfromtherift.com/vr-canvas-keyboard/)
@@ -102,8 +113,13 @@ The script is attached to NetworkManager in Scene Login_Student.
 
 ## Authors
 Emily Yao - Lead Developer @Sakuya0116
+
 Arden Allen - Developer @ardenallen
+
 Leo Chen - 3D Artist @LeoCHCH
+
 Meg Dimma - Project Manager
+
 Ruby Zhang - UX Designer/ Product Manager
+
 Parastou Heidari - UI Designer/ 2D Artist

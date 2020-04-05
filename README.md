@@ -107,6 +107,7 @@ The training passcode is **1234** (you don’t need to input).
 
 ## Built With
 Unity 2019.2.19f1
+
 [Oculus Unity Integration](https://developer.oculus.com/downloads/package/unity-integration/)
 
 [Photon PUN 2](https://www.photonengine.com/PUN)
@@ -117,8 +118,13 @@ Unity 2019.2.19f1
 
 ## Authors
 Meg Dimma - Project Manager
+
 Ruby Zhang - UX Designer/ Product Manager
+
 Parastou Heidari - UI Designer/ 2D Artist
+
 Emily Yao - Lead Developer @sakuya0116
+
 Arden Allen - Developer @ardenallen
+
 Leo Chen - 3D Artist @LeoCHCH

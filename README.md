@@ -1,4 +1,4 @@
-#Virtual Clinical Simulation (VCS)
+# Virtual Clinical Simulation (VCS)
 VCS is a proof of concept prototype of virtual clinical simulation training software. It is aiming to solve the problem for medical students who do not have the accessibility to the real clinical training centre, especially in developing countries.
 
 The prototype is designed around a specific clinical scenario of a young male patient sustaining a motor vehicle crash suffering with hypotensive shock. In the scenario, the student is expected to do a typical patient assessment; asking the patient how they are, monitoring their vitals and conducting a physical assessment. Upon that, discovering that the patient has suffered trauma to his pelvic region. 
@@ -68,6 +68,7 @@ AMD 400 series|✓
 AMD 500 series|✓
 AMD 5000 series|✓
 AMD Vega series|✓
+
 If your GPU is not on the list, the compatibility cannot be guaranteed. For further information, please click [here](https://support.oculus.com/444256562873335/).
 
 ### Prerequisites
@@ -76,3 +77,45 @@ For using Oculus Link, please download **[Oculus software](https://www.oculus.co
 To get more information, please visit **[Oculus Support Centre](https://support.oculus.com/quest/)**.
 
 For getting a copy of this project, please access the **master branch** and download it as a **ZIP file**.
+
+[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+> Process of Downloading Project
+
+## Running the Tests
+### Student End
+For running the application on the VR headset, please connect the Oculus Quest to your PC with cable and running the Oculus application, then enable the Oculus Link function after you put it on.
+
+Find the **VCS_Student.exe** file in **VCS/Application/StudentEnd** and run. 
+
+Important: make sure all the files in VCS/Application/StudentEnd are always put together (at the same location or folder), otherwise, the application cannot run successfully. 
+
+When you log into the training, please **input 1234 as the passcode**, to make sure the student and instructor can enter the same room.
+
+[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+> Input Passcode on Student End
+
+### Instructor End
+For the Windows system, please open the VCS_Instructor.exe file in **VCS/Application/InstructorEnd_Windows**.
+
+***Important: make sure all the files in VCS/Application/InstructorEnd_Windows are always put together (at the same location or folder)***_, otherwise, the application cannot run successfully._
+
+For MacOS, please copy **VCS/Application/InstructorEnd_Mac/InstructorEnd_Mac.app** to your Mac.
+
+Since it does not connect to the database, the username and password will not influence the training simulation, you can skip login and directly go to the dashboard.
+
+The training passcode is **1234** (you don’t need to input).
+
+## Built With
+Unity 2019.2.19f1
+[Oculus Unity Integration](https://developer.oculus.com/downloads/package/unity-integration/)
+[Photon PUN 2](https://www.photonengine.com/PUN)
+[Photon Voice](https://www.photonengine.com/Voice)
+[Peter Koch - VR Canvas Keyboard](http://talesfromtherift.com/vr-canvas-keyboard/)
+
+## Authors
+Meg Dimma - Project Manager
+Ruby Zhang - UX Designer/ Product Manager
+Parastou Heidari - UI Designer/ 2D Artist
+Emily Yao - Lead Developer @sakuya0116
+Arden Allen - Developer @ardenallen
+Leo Chen - 3D Artist @LeoCHCH

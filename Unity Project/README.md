@@ -18,8 +18,8 @@ For getting a copy of this project, please access to the master branch and downl
 * A PC that meets the requirement of Oculus Link (https://support.oculus.com/444256562873335/)
 
 ##### Software Requirement (student end)
-* Oculus App Version 15.0.0.200.456 (15.0.0.200.456) (https://www.oculus.com/setup/#rift-setup)
-* Oculus mobile application for changing some settings and getting the device information (https://www.oculus.com/setup/#quest-setup)
+* [Oculus App Version 15.0.0.200.456](15.0.0.200.456) (https://www.oculus.com/setup/#rift-setup)
+* [Oculus mobile application](https://www.oculus.com/setup/#quest-setup) for device management
 
 ##### Development Tool
 * Unity 2019.2.19f1

@@ -108,8 +108,11 @@ The training passcode is **1234** (you don’t need to input).
 ## Built With
 Unity 2019.2.19f1
 [Oculus Unity Integration](https://developer.oculus.com/downloads/package/unity-integration/)
+
 [Photon PUN 2](https://www.photonengine.com/PUN)
+
 [Photon Voice](https://www.photonengine.com/Voice)
+
 [Peter Koch - VR Canvas Keyboard](http://talesfromtherift.com/vr-canvas-keyboard/)
 
 ## Authors

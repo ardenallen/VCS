@@ -78,7 +78,7 @@ To get more information, please visit **[Oculus Support Centre](https://support.
 
 For getting a copy of this project, please access the **master branch** and download it as a **ZIP file**.
 
-[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/VRPasscode.jpg)](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/VRPasscode.jpg "VRPasscode")
+[!(https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/downloadProject.PNG "downloadProject")
 > Process of Downloading Project
 
 ## Running the Tests
@@ -91,7 +91,7 @@ Important: make sure all the files in VCS/Application/StudentEnd are always put 
 
 When you log into the training, please **input 1234 as the passcode**, to make sure the student and instructor can enter the same room.
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[!(https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/VRPasscode.jpg "VRPasscode")
 > Input Passcode on Student End
 
 ### Instructor End

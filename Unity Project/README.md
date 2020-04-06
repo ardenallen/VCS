@@ -9,7 +9,7 @@ The project is split into two client ends: **VR end for students** and **PC end 
 ### Prerequisites
 For getting a copy of this project, please access to the master branch and download it as a **ZIP file**. Then find two projects file from **VCS/Unity Project/StudentEnd** and **VCS/Unity Project/InstructorEnd**.
 
-[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/downloadProject.PNG "downloadProject")
+![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/downloadProject.PNG "downloadProject")
 > Process of Downloading Project
 
 ##### Hardware Requirement (student end)
@@ -40,19 +40,19 @@ For getting your own Photon server, please register an account on [Photon offici
 
 In the dashboard, click **CREATE A NEW APP**
 
-[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp1.PNG "PhotonSetUp1")
+![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp1.PNG "PhotonSetUp1")
 
 Choose the Photon Type as **Photon PUN**
 
-[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp2.PNG "PhotonSetUp2")
+![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp2.PNG "PhotonSetUp2")
 
 Copy the **App ID**
 
-[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp3.PNG "PhotonSetUp3")
+![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp3.PNG "PhotonSetUp3")
 
 Paste the App ID to **PhotonServerSettings** in Unity and change the settings based on your need
 
-[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp4.PNG "PhotonSetUp4")
+![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp4.PNG "PhotonSetUp4")
 
 ### Oculus Development
 If you want to release the application on Oculus platform or develop it on Android, please register your Oculus account and create your own application on the developer dashboard. For the details, please visit [Oculus Developers](https://developer.oculus.com/).

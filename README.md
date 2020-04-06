@@ -78,7 +78,7 @@ To get more information, please visit **[Oculus Support Centre](https://support.
 
 For getting a copy of this project, please access the **master branch** and download it as a **ZIP file**.
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/VRPasscode.jpg)](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/VRPasscode.jpg "VRPasscode")
 > Process of Downloading Project
 
 ## Running the Tests

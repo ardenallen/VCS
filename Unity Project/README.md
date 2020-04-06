@@ -9,7 +9,7 @@ The project is split into two client ends: **VR end for students** and **PC end 
 ### Prerequisites
 For getting a copy of this project, please access to the master branch and download it as a **ZIP file**. Then find two projects file from **VCS/Unity Project/StudentEnd** and **VCS/Unity Project/InstructorEnd**.
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/downloadProject.PNG "downloadProject")
 > Process of Downloading Project
 
 ##### Hardware Requirement (student end)
@@ -18,7 +18,7 @@ For getting a copy of this project, please access to the master branch and downl
 * A PC that meets the requirement of Oculus Link (https://support.oculus.com/444256562873335/)
 
 ##### Software Requirement (student end)
-* [Oculus App Version 15.0.0.200.456](15.0.0.200.456) (https://www.oculus.com/setup/#rift-setup)
+* [Oculus App Version 15.0.0.200.456](https://www.oculus.com/setup/#rift-setup)
 * [Oculus mobile application](https://www.oculus.com/setup/#quest-setup) for device management
 
 ##### Development Tool
@@ -40,19 +40,19 @@ For getting your own Photon server, please register an account on [Photon offici
 
 In the dashboard, click **CREATE A NEW APP**
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp1.PNG "PhotonSetUp1")
 
 Choose the Photon Type as **Photon PUN**
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp2.PNG "PhotonSetUp2")
 
 Copy the **App ID**
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp3.PNG "PhotonSetUp3")
 
 Paste the App ID to **PhotonServerSettings** in Unity and change the settings based on your need
 
-[![](https://www.mdeditor.com/images/logos/markdown.png)](https://www.mdeditor.com/images/logos/markdown.png "markdown")
+[![](https://github.com/sakuya0116/VCS/blob/master/Documentation/Images~/PhotonSetUp4.PNG "PhotonSetUp4")
 
 ### Oculus Development
 If you want to release the application on Oculus platform or develop it on Android, please register your Oculus account and create your own application on the developer dashboard. For the details, please visit [Oculus Developers](https://developer.oculus.com/).
@@ -93,23 +93,34 @@ OVR:
 
 ## Important Classes
 ### Student End
-##### NetworkLauncher
-The script is attached to NetworkManager in Scene Login_Student. 
-##### NetworkPlayer
+* __NetworkLauncher__
+The script is attached to **NetworkManager** in the Scene **Login_Student**. It is mainly used for server connection, room creation, and UI management.
 
-##### TrainingManagement
+* __TrainingManager__
+The script is attached to the gameobject **TrainingManager** in the Scene **TrainingRoom**. It will instantiate the user’s character after joining the room.
 
-##### ControlPanelDataTransfer
+* __NetworkPlayer__
+The script is attached to **LeadDoctor** and **Doctor** prefabs in ** Assets/Photon/PhotonUnityNetworking/Resources**, which is used for instantiating user’s character on their own client and transferring data to the others. It will synchronize the character’s name, position, rotation, character’s hands’ position and rotation, and status of the objects on the character itself, to other users who are in the same training room.
 
+* __ControlPanelDataTransfer__
+This script is for transferring and receiving data from other users, it is attached to **LeadDoctor** and **Doctor** prefabs, and requires **PhotonView** component (A class in Photon PUN 2) and **RPC function** (Remote Procedure Calls). In this case, on the student end, it will send the activated status of the objects on characters, like the stethoscope, so that other users are able to see the changes. Meanwhile, it will receive the data from instructors to update vitals, active tools, control patient’s animation, and the volume of voice chat.
 
-
+* Note: There are various other scripts present in **VCS/Unity Project/StudentEnd/Assets/Script** that are attached to the stethoscope X-ray and blood result. 
 
 ### Instructor End
+* __NetworkLauncher__
+The script is attached to **NetworkManager** in the Scene **Login_Instructor**. It is mainly used for server connection, room creation, and UI management. It also is responsible for the transitions from the login page to the dashboard.
 
+* __TrainingManager__
+The script is attached to the game object **TrainingManager** in the Scene **TrainingRoom**. It will instantiate the instructor upon joining the room
 
+* __ControlPanelManagement__
+The script is attached to the gameobject **TrainingManager** in the Scene **TrainingRoom**. This script attaches callbacks to the different UI elements of the control panel and tracks when the user makes changes to the control panel, including adjusting the vitals and making objects appear/disappear in the scene. This script tracks these changes so that the **ControlPanelDataTransfer** script can synchronize the changes to the student via **RPC function**.
 
+* __ControlPanelDataTransfer__
+This script is for transferring and receiving data from other users, it is attached to Instructor prefab, and requires a **PhotonView** component (A class in Photon PUN 2) and **RPC function** (Remote Procedure Calls). In this case, it will check the flags in the **ControlPanelManagement** component of the **TrainingManager** to see if the values in the control panel have changed, and then will use the RPC functions to send the corresponding new values to the student. The script contains RPC callbacks for changing the vitals, changing the visibility of objects, as well as activating the animation to talk as the patient. The script also makes RPC calls to send these values to the student.
 
-
+* Note: There are various other scripts present in **VCS/Unity Project/InstructorEnd/Assets/Script** that are attached to the various UI elements of the Control Panel and Login/Dashboard. 
 
 ## Authors
 Emily Yao - Lead Developer [@sakuya0116](https://github.com/sakuya0116)

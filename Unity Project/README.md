@@ -94,30 +94,38 @@ OVR:
 ## Important Classes
 ### Student End
 * __NetworkLauncher__
+
 The script is attached to **NetworkManager** in the Scene **Login_Student**. It is mainly used for server connection, room creation, and UI management.
 
 * __TrainingManager__
+
 The script is attached to the gameobject **TrainingManager** in the Scene **TrainingRoom**. It will instantiate the user’s character after joining the room.
 
 * __NetworkPlayer__
+
 The script is attached to **LeadDoctor** and **Doctor** prefabs in ** Assets/Photon/PhotonUnityNetworking/Resources**, which is used for instantiating user’s character on their own client and transferring data to the others. It will synchronize the character’s name, position, rotation, character’s hands’ position and rotation, and status of the objects on the character itself, to other users who are in the same training room.
 
 * __ControlPanelDataTransfer__
+
 This script is for transferring and receiving data from other users, it is attached to **LeadDoctor** and **Doctor** prefabs, and requires **PhotonView** component (A class in Photon PUN 2) and **RPC function** (Remote Procedure Calls). In this case, on the student end, it will send the activated status of the objects on characters, like the stethoscope, so that other users are able to see the changes. Meanwhile, it will receive the data from instructors to update vitals, active tools, control patient’s animation, and the volume of voice chat.
 
 * Note: There are various other scripts present in **VCS/Unity Project/StudentEnd/Assets/Script** that are attached to the stethoscope X-ray and blood result. 
 
 ### Instructor End
 * __NetworkLauncher__
+
 The script is attached to **NetworkManager** in the Scene **Login_Instructor**. It is mainly used for server connection, room creation, and UI management. It also is responsible for the transitions from the login page to the dashboard.
 
 * __TrainingManager__
+
 The script is attached to the game object **TrainingManager** in the Scene **TrainingRoom**. It will instantiate the instructor upon joining the room
 
 * __ControlPanelManagement__
+
 The script is attached to the gameobject **TrainingManager** in the Scene **TrainingRoom**. This script attaches callbacks to the different UI elements of the control panel and tracks when the user makes changes to the control panel, including adjusting the vitals and making objects appear/disappear in the scene. This script tracks these changes so that the **ControlPanelDataTransfer** script can synchronize the changes to the student via **RPC function**.
 
 * __ControlPanelDataTransfer__
+
 This script is for transferring and receiving data from other users, it is attached to Instructor prefab, and requires a **PhotonView** component (A class in Photon PUN 2) and **RPC function** (Remote Procedure Calls). In this case, it will check the flags in the **ControlPanelManagement** component of the **TrainingManager** to see if the values in the control panel have changed, and then will use the RPC functions to send the corresponding new values to the student. The script contains RPC callbacks for changing the vitals, changing the visibility of objects, as well as activating the animation to talk as the patient. The script also makes RPC calls to send these values to the student.
 
 * Note: There are various other scripts present in **VCS/Unity Project/InstructorEnd/Assets/Script** that are attached to the various UI elements of the Control Panel and Login/Dashboard. 

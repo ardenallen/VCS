@@ -87,7 +87,8 @@ For running the application on the VR headset, please connect the Oculus Quest t
 
 Find the **VCS_Student.exe** file in **VCS/Application/StudentEnd** and run. 
 
-Important: make sure all the files in VCS/Application/StudentEnd are always put together (at the same location or folder), otherwise, the application cannot run successfully. 
+***Important: make sure all the files in VCS/Application/StudentEnd are always put together (at the same location or folder)
+***_, otherwise, the application cannot run successfully._
 
 When you log into the training, please **input 1234 as the passcode**, to make sure the student and instructor can enter the same room.
 

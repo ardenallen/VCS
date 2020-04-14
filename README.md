@@ -33,7 +33,7 @@ The project is split into two client ends: VR end for students and PC end for in
 ### Hardware Requirements
 For running the student end, the Oculus Quest is required, you can buy the device through this link: https://www.oculus.com/quest/where-to-buy/
 
-Due to the calculation power of Oculus Quest and 3D assets quality in the prototype, it needs to run by PC. Please access here for purchasing a USB cable which can enable Oculus Link function.
+Due to the calculation power of Oculus Quest and 3D assets quality in the prototype, it needs to run by PC. Please access [here](https://www.amazon.ca/dp/B01MZIPYPY/) for purchasing a USB cable which can enable Oculus Link function.
 
 ##### Recommended PC configuration
 Componets	|	Recommended Configuration	|
